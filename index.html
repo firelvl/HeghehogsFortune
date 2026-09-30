@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Гадание Ежа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-screen stage. Arcade night: electric cobalt field with speed streaks, sunny-gold dial and card trim; cards deal from above. Deliberately single dark look. */
+:root {
+  --bg: #000;
+  --felt: #0d1f6e;
+  --felt-hi: #1b3fc4;
+  --brass: #ffc81f;
+  --brass-hi: #fff09a;
+  --brass-lo: #3b63e6;
+  --ink: #f3f6ff;
+  --muted: #9db2f2;
+  --wine: #1540d0;
+  --wine-dk: #081c7a;
+  --cyan: #4fe3ff;
+  --danger: #ff6b5e;
+  --paper: #fdf8e8;
+  --paper-ink: #14193a;
+  --well-a: #050b2c;
+  --well-b: #0b1a5c;
+  --f-display: "Russo One", "Arial Black", Impact, sans-serif;
+  --f-body: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { margin: 0; font-size: 14px; }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--brass-hi); outline-offset: 3px; }
+
+.screen {
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 20px 16px 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(14px, 3vh, 26px);
+  transition: opacity .7s ease, transform .7s ease, filter .7s ease;
+}
+.screen.leaving { opacity: 0; transform: scale(.94); filter: blur(6px); pointer-events: none; }
+
+/* ---------- header ---------- */
+.eyebrow {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cyan);
+}
+h1 {
+  font-family: var(--f-display); font-weight: 400; margin: 6px 0 0;
+  font-size: clamp(22px, 5.6vw, 34px); line-height: 1.15; font-style: italic; transform: skewX(-6deg); text-align: center; text-wrap: balance;
+}
+.head { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+
+/* ---------- слово ---------- */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.word-form { display: flex; flex-direction: column; align-items: center; gap: 22px; width: 100%; max-width: 420px; }
+.word-input {
+  width: 100%; box-sizing: border-box; padding: 16px 20px; border-radius: 14px;
+  background: linear-gradient(180deg, var(--well-a), var(--well-b)); color: var(--brass);
+  border: 1px solid var(--brass-lo); outline: none; text-align: center;
+  font-family: var(--f-display); font-size: clamp(22px, 6vw, 30px);
+  box-shadow: inset 0 2px 14px rgba(0,0,0,.6);
+  transition: border-color .2s, box-shadow .2s;
+}
+.word-input::placeholder { color: var(--muted); opacity: .6; font-family: var(--f-body); font-size: 16px; }
+.word-input:focus { border-color: var(--brass); box-shadow: inset 0 2px 14px rgba(0,0,0,.6), 0 0 22px rgba(255,200,31,.3); }
+.reply {
+  font-family: var(--f-display); font-size: clamp(30px, 9vw, 52px); color: var(--brass);
+  font-style: italic; transform: skewX(-6deg); text-shadow: 0 4px 0 #b36b00, 0 0 30px rgba(255,200,31,.4);
+  text-align: center; animation: replyIn .7s cubic-bezier(.2,1.4,.4,1);
+}
+@keyframes replyIn { from { opacity: 0; transform: skewX(-6deg) scale(.6); } }
+
+/* ---------- slots ---------- */
+.slots { display: flex; gap: clamp(10px, 3vw, 20px); }
+.slot {
+  width: clamp(100px, 29vw, 150px); aspect-ratio: 6 / 5; container-type: inline-size;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--well-a), var(--well-b));
+  border: 1px solid var(--brass-lo);
+  box-shadow: inset 0 2px 14px rgba(0,0,0,.6), 0 0 0 4px rgba(79,227,255,.07);
+  display: grid; place-items: center; position: relative; cursor: default;
+  font-family: var(--f-display); font-size: clamp(32px, 10vw, 48px); color: var(--brass); text-shadow: 0 3px 0 #b36b00;
+  font-variant-numeric: tabular-nums; letter-spacing: .02em;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.slot-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.slot-val {
+  height: clamp(28px, 7vw, 38px); line-height: clamp(28px, 7vw, 38px); min-width: 1ch;
+  font-family: var(--f-display); font-size: clamp(24px, 6.4vw, 34px); color: var(--brass);
+  text-shadow: 0 3px 0 #b36b00, 0 0 18px rgba(255,200,31,.35); font-variant-numeric: tabular-nums;
+}
+.slot-val.bad { color: var(--danger); text-shadow: 0 3px 0 #8a2a20; }
+.slot-val.bump { animation: pop .3s cubic-bezier(.3,1.6,.5,1); }
+.discs { display: flex; gap: 3cqw; width: 92%; margin-top: 6%; }
+.disc {
+  flex: 1; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--f-display); font-size: 17cqw; line-height: 1; text-shadow: none;
+  color: rgba(253,248,232,.2); border: 1.5px dashed rgba(253,248,232,.22); background: rgba(253,248,232,.03);
+  transition: background .25s, color .25s, border-color .25s, box-shadow .25s;
+}
+.disc.on {
+  color: var(--wine-dk); border: 0;
+  background: radial-gradient(circle at 35% 30%, #fff8e6, var(--paper) 55%, #cdbf9f);
+  box-shadow: 0 2px 6px rgba(0,0,0,.5), inset 0 0 0 2px var(--wine);
+}
+.disc.new { animation: pop .35s cubic-bezier(.3,1.6,.5,1); }
+.disc.on { cursor: pointer; padding: 0; }
+.disc.on:hover { box-shadow: 0 2px 6px rgba(0,0,0,.5), inset 0 0 0 2px var(--danger); }
+.slot.hover .disc:not(.on) { border-color: rgba(255,200,31,.4); }
+.disc.target { transform: scale(1.12); border-color: var(--brass) !important; border-style: solid; background: rgba(255,200,31,.18); box-shadow: 0 0 14px rgba(255,200,31,.6); }
+.disc.on.target { box-shadow: 0 0 0 3px var(--brass), 0 0 14px rgba(255,200,31,.6); }
+.disc { transition: background .25s, color .25s, border-color .25s, box-shadow .25s, transform .15s; }
+.slot .idx {
+  position: absolute; top: 7px; left: 9px; font-family: var(--f-mono); font-size: 10px; color: var(--cyan);
+}
+.slot.hover { border-color: var(--brass-hi); box-shadow: inset 0 2px 14px rgba(0,0,0,.6), 0 0 0 4px rgba(255,200,31,.35), 0 0 22px rgba(255,200,31,.35); transform: translateY(-2px); }
+.slot.dup { border-color: var(--danger); }
+.slot.done { border-color: var(--brass); box-shadow: inset 0 2px 14px rgba(0,0,0,.6), 0 0 16px rgba(255,200,31,.25); }
+.slot.shake { animation: shake .4s; }
+.slot.focus {
+  z-index: 30; border-color: var(--brass-hi);
+  box-shadow: inset 0 2px 14px rgba(0,0,0,.6), 0 0 26px rgba(255,200,31,.55);
+}
+.slot::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: 0 0 0 200vmax rgba(0,0,0,.9); opacity: 0;
+  transition: opacity var(--dimT, .6s) var(--dimE, ease);
+}
+.slot.focus::before { opacity: 1; }
+.slot.focus, .slot.fading { z-index: 31; }
+.slot { transition: border-color .2s, box-shadow .45s ease, transform .2s; }
+.cam { display: flex; flex-direction: column; align-items: center; gap: clamp(14px, 3vh, 26px); width: 100%; transform-origin: 50% 30%; }
+@keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(3px)} }
+
+.hint {
+  min-height: 4em; max-width: 42ch; text-align: center; font-size: 13px; line-height: 1.35;
+  color: var(--muted);
+}
+.hint.warn { color: var(--danger); font-style: normal; font-weight: 600; }
+
+/* ---------- dial ---------- */
+.dial {
+  --size: min(78vw, 300px);
+  width: var(--size); height: var(--size); position: relative; flex: none;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 200deg, rgba(79,227,255,.18), transparent 25%, transparent 60%, rgba(255,200,31,.14) 80%, rgba(79,227,255,.18)),
+    radial-gradient(circle at 50% 40%, var(--felt), var(--well-a) 75%);
+  box-shadow: 0 0 0 2px var(--brass), 0 0 0 7px var(--well-a), 0 0 0 9px var(--cyan), 0 0 40px rgba(79,227,255,.35), 0 18px 40px rgba(0,0,0,.55);
+}
+.hub {
+  position: absolute; inset: 34%; border-radius: 50%; z-index: 2;
+  background: radial-gradient(circle at 38% 32%, var(--brass-hi), var(--brass) 50%, #d98a00);
+  box-shadow: 0 4px 12px rgba(0,0,0,.5), inset 0 -3px 6px rgba(0,0,0,.25);
+  display: grid; place-items: center; text-align: center;
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #3b2a00;
+  line-height: 1.4; font-weight: 600; padding: 6px; box-sizing: border-box;
+}
+.digit {
+  position: absolute; z-index: 3; width: clamp(44px, 14.5vw, 56px); aspect-ratio: 1; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: grid; place-items: center; cursor: grab; touch-action: none; user-select: none; border: 0;
+  font-family: var(--f-display); font-size: clamp(22px, 7vw, 28px); color: var(--wine-dk);
+  background: radial-gradient(circle at 35% 30%, #fff8e6, var(--paper) 55%, #cdbf9f);
+  box-shadow: 0 3px 8px rgba(0,0,0,.5), inset 0 0 0 3px var(--wine);
+  transition: transform .15s;
+}
+.digit:hover { transform: translate(-50%, -50%) scale(1.07); }
+.digit.lifted { opacity: .35; }
+.ghost {
+  position: fixed; z-index: 50; pointer-events: none; left: 0; top: 0;
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--f-display); font-size: 28px; color: var(--wine-dk);
+  background: radial-gradient(circle at 35% 30%, #fff8e6, var(--paper) 55%, #cdbf9f);
+  box-shadow: 0 14px 26px rgba(0,0,0,.55), inset 0 0 0 3px var(--wine), 0 0 18px rgba(255,200,31,.6);
+}
+
+/* ---------- primary button ---------- */
+.cta {
+  border: 0; cursor: pointer; border-radius: 999px; padding: 14px 34px;
+  font-family: var(--f-display); font-size: 20px; letter-spacing: .06em; text-transform: uppercase; color: #1a1400;
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  box-shadow: 0 6px 0 #c47f00, 0 12px 26px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.6);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .4s ease;
+}
+.cta:hover { filter: brightness(1.06); }
+.cta.off { opacity: 0; transform: translateY(40px); pointer-events: none; }
+.cta-slot { height: 56px; display: grid; place-items: center; }
+
+/* ---------- reading ---------- */
+#reading { position: fixed; inset: 0; justify-content: flex-start; padding: 0; gap: 0; }
+.topbar {
+  width: 100%; box-sizing: border-box; padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px 0;
+  display: flex; justify-content: center; gap: 10px; align-items: center;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.pips { display: flex; gap: 6px; }
+.pip { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--brass-lo); }
+.pip.on { background: var(--brass); border-color: var(--brass); box-shadow: 0 0 8px var(--brass); }
+.stage { flex: 1; width: 100%; display: grid; place-items: center; perspective: 1400px; min-height: 0; }
+.card-wrap {
+  --w: min(72vw, 300px, calc((100dvh - 190px) / 1.6));
+  width: var(--w); aspect-ratio: 5 / 8; position: relative; border: 0; padding: 0; background: none; cursor: pointer;
+  transform-style: flat; perspective: 700px; touch-action: none;
+}
+.card-wrap:disabled { cursor: default; }
+.shadow {
+  position: absolute; left: 8%; right: 8%; bottom: -5%; height: 9%; border-radius: 50%;
+  background: rgba(0,0,0,.55); filter: blur(10px);
+}
+.card { position: absolute; inset: 0; transform-style: preserve-3d; }
+.face {
+  position: absolute; inset: 0; border-radius: 5px; overflow: hidden;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.back {
+  background:
+    repeating-linear-gradient(-24deg, transparent 0 18px, rgba(79,227,255,.12) 18px 21px, transparent 21px 40px),
+    radial-gradient(120% 90% at 50% 20%, var(--felt-hi), var(--wine) 55%, var(--wine-dk));
+  box-shadow: inset 0 0 0 3px var(--brass), inset 0 0 0 8px var(--wine-dk), inset 0 0 0 9px var(--cyan), 0 2px 0 rgba(0,0,0,.2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  color: var(--brass-hi); text-align: center;
+}
+.back .ring {
+  width: 64%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+  border: 3px solid var(--brass); box-shadow: 0 0 0 6px rgba(8,28,122,.7), 0 0 0 8px rgba(79,227,255,.6), 0 0 30px rgba(255,200,31,.35);
+  background: radial-gradient(circle, rgba(8,28,122,.95), rgba(8,28,122,.55));
+}
+.back .num { font-family: var(--f-display); font-size: calc(var(--w) * .26); text-shadow: 0 3px 0 #b36b00; line-height: 1; font-variant-numeric: tabular-nums; }
+.back .lbl { font-family: var(--f-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--cyan); margin-top: 10px; }
+.back .tap { position: absolute; bottom: 7%; font-size: 12px; font-weight: 600; color: rgba(255,240,154,.8); transition: opacity .3s; }
+.front {
+  transform: rotateY(180deg);
+  background: var(--paper); color: var(--paper-ink);
+  box-shadow: inset 0 0 0 3px var(--brass), inset 0 0 0 6px var(--paper), inset 0 0 0 7px var(--wine);
+  display: flex; flex-direction: column; padding: 10px; box-sizing: border-box; gap: 8px;
+}
+.front img { width: 100%; aspect-ratio: 600 / 520; object-fit: contain; background: var(--well-a); border-radius: 2px; display: block; flex: none; }
+.front .body { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; }
+.front .inner { margin-block: auto; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 4px 8px 14px; text-align: center; }
+.front h2 { font-family: var(--f-display); font-weight: 400; font-size: calc(var(--w) * .068); color: var(--wine-dk); margin: 0; line-height: 1.1; text-wrap: balance; }
+.front .no { position: absolute; right: 12px; bottom: 9px; font-family: var(--f-mono); font-size: 10px; color: #5a6aa8; white-space: nowrap; }
+.front p { margin: 0; font-size: calc(var(--w) * .047); line-height: 1.45; }
+.front .inner h2:only-child { font-size: calc(var(--w) * .095); }
+.dock {
+  height: calc(96px + env(safe-area-inset-bottom, 0px)); display: grid; place-items: start center; width: 100%;
+}
+
+/* ---------- summary ---------- */
+#summary { gap: 22px; }
+.spread { display: grid; grid-template-columns: repeat(3, minmax(0, 320px)); gap: clamp(8px, 2.2vw, 32px); width: 100%; max-width: 1080px; justify-content: center; }
+.mini .mtext { display: none; margin: 0; font-size: 14px; line-height: 1.45; color: var(--paper-ink); }
+.mini .mbody { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; text-align: center; padding: 10px 4px 4px; min-height: 3.2em; }
+.mini-btn { display: flex; }
+.mini-btn .mini { flex: 1; }
+@media (min-width: 760px) {
+  .mini { padding: 10px; gap: 10px; }
+  .mini .mtext { display: block; }
+  .mini .no, .mini .look { font-size: 11px; }
+  #summary h1 { font-size: 40px; }
+}
+.mini {
+  background: var(--paper); color: var(--paper-ink); border-radius: 4px; padding: 6px; min-width: 0;
+  box-shadow: inset 0 0 0 2px var(--brass), 0 10px 24px rgba(0,0,0,.45);
+  display: flex; flex-direction: column; gap: 6px; opacity: 0; transform: translateY(-30px);
+  animation: dealIn .7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.mini img { width: 100%; aspect-ratio: 600/520; object-fit: contain; background: var(--well-a); border-radius: 1px; display: block; }
+.mini h3 { margin: 0; font-family: var(--f-display); font-weight: 400; color: var(--wine-dk); text-align: center; font-size: clamp(11px, 1.4vw + 6px, 22px); line-height: 1.15; padding: 0 2px; }
+.mini .no { font-family: var(--f-mono); font-size: 9px; color: #5a6aa8; padding: 0 2px 2px; align-self: flex-end; }
+@keyframes dealIn { to { opacity: 1; transform: none; } }
+.note { font-size: 12px; color: var(--muted); text-align: center; max-width: 40ch; font-style: italic; }
+
+/* ---------- наклон и перелив ---------- */
+.tilt {
+  position: absolute; inset: 0; transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--lift, 0px));
+  transition: transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.tilt.live { --lift: 18px; }
+.tilt.live { transition: transform .08s linear; }
+
+/* ---------- частицы ---------- */
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49; }
+
+/* ---------- итог: мини-карты как кнопки ---------- */
+.mini-btn {
+  border: 0; padding: 0; background: none; cursor: pointer; min-width: 0; perspective: 500px; touch-action: none;
+  opacity: 0; transform: translateY(-30px); animation: dealIn .7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.mini-btn .mini { opacity: 1; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); animation: none; position: relative; overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.mini-btn .mini.live { transition: transform .08s linear; }
+.mini-btn:hover .mini h3 { color: var(--felt-hi); }
+.mini .look { font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--wine); padding: 0 2px 2px; }
+
+/* ---------- просмотр карты ---------- */
+.viewer {
+  position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px calc(env(safe-area-inset-bottom, 0px) + 16px);
+  background: rgba(0,0,0,.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn .3s ease;
+}
+.viewer .card-wrap { --w: min(76vw, 440px, calc((100dvh - 170px) / 1.6)); cursor: default; animation: zoomIn .45s cubic-bezier(.2,.8,.2,1); }
+.viewer .card { transform: rotateY(180deg); }
+.viewer-bar { display: flex; align-items: center; gap: 14px; }
+.round {
+  width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--brass); background: var(--wine-dk);
+  color: var(--brass); font-family: var(--f-display); font-size: 22px; cursor: pointer; display: grid; place-items: center;
+}
+.round:hover { background: var(--wine); }
+.round:disabled { opacity: .3; cursor: default; }
+.viewer .close { padding: 10px 26px; font-size: 16px; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes zoomIn { from { opacity: 0; transform: scale(.8) translateY(20px); } }
+
+/* ---------- редактор карт (только локально через server.py) ---------- */
+.ed-btn {
+  position: fixed; left: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); z-index: 45;
+  border: 1px solid var(--brass-lo); background: rgba(13,31,110,.55); color: var(--ink);
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; padding: 9px 14px; border-radius: 8px;
+  opacity: .4; cursor: pointer; transition: opacity .2s;
+}
+.ed-btn:hover, .ed-btn:focus-visible { opacity: 1; }
+.editor {
+  position: fixed; inset: 0; z-index: 60; background: var(--bg); overflow-y: auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px calc(env(safe-area-inset-bottom, 0px) + 32px);
+}
+.ed-head {
+  position: sticky; top: calc(-16px - env(safe-area-inset-top, 0px)); z-index: 2; background: var(--bg);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0 14px; max-width: 1400px; margin: 0 auto;
+}
+.ed-head h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(20px, 3vw, 28px); color: var(--brass); }
+.ed-head .count { font-family: var(--f-mono); font-size: 13px; color: var(--muted); margin-left: 8px; }
+.ed-head .cta { padding: 10px 24px; font-size: 16px; }
+.ed-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; max-width: 1400px; margin: 0 auto; }
+.ed-tile { position: relative; min-width: 0; }
+.ed-open {
+  width: 100%; border: 0; padding: 6px; border-radius: 4px; cursor: pointer; text-align: left;
+  background: var(--paper); color: var(--paper-ink); display: flex; flex-direction: column; gap: 6px;
+  box-shadow: inset 0 0 0 2px var(--brass); transition: transform .15s, box-shadow .15s;
+}
+.ed-open:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 2px var(--brass), 0 0 0 3px var(--cyan); }
+.ed-open img { width: 100%; aspect-ratio: 600/520; object-fit: contain; background: var(--well-a); display: block; border-radius: 1px; }
+.ed-open .t { font-family: var(--f-display); font-size: 14px; line-height: 1.15; color: var(--wine-dk); overflow-wrap: anywhere; }
+.ed-open .n { font-family: var(--f-mono); font-size: 10px; color: #5a6aa8; }
+.ed-del {
+  position: absolute; top: -8px; right: -8px; width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--bg); background: var(--danger); color: #fff; font-size: 17px; line-height: 1;
+  cursor: pointer; display: grid; place-items: center; opacity: .85; transition: transform .15s, opacity .15s;
+}
+.ed-del:hover { opacity: 1; transform: scale(1.12); }
+.ed-modal {
+  position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 16px;
+  background: rgba(0,0,0,.8); animation: fadeIn .2s ease;
+}
+.ed-panel {
+  width: min(92vw, 560px); max-height: calc(100dvh - 32px); overflow-y: auto; box-sizing: border-box;
+  background: var(--paper); color: var(--paper-ink); border-radius: 5px; padding: 14px;
+  box-shadow: inset 0 0 0 3px var(--brass), 0 20px 60px rgba(0,0,0,.6);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ed-panel.small { width: min(92vw, 420px); padding: 22px; }
+.ed-panel img { width: 100%; aspect-ratio: 600/520; object-fit: contain; background: var(--well-a); border-radius: 2px; display: block; }
+.ed-panel label { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #5a6aa8; }
+.ed-panel input {
+  font-family: var(--f-display); font-size: 22px; color: var(--wine-dk); padding: 10px 12px; border-radius: 4px;
+  border: 2px solid var(--brass-lo); background: #fff; outline: none; width: 100%; box-sizing: border-box;
+}
+.ed-panel input:focus { border-color: var(--brass); box-shadow: 0 0 0 3px rgba(255,200,31,.35); }
+.ed-file { font-family: var(--f-mono); font-size: 11px; color: #5a6aa8; overflow-wrap: anywhere; }
+.ed-panel p { margin: 0; font-size: 16px; line-height: 1.45; }
+.ed-panel p small { display: block; margin-top: 8px; font-size: 13px; color: #5a6aa8; }
+.ed-row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+.ed-row .cta { padding: 10px 24px; font-size: 16px; }
+.ed-ghost {
+  border: 2px solid var(--brass-lo); background: transparent; color: var(--wine-dk); border-radius: 999px;
+  padding: 9px 22px; font-family: var(--f-display); font-size: 15px; cursor: pointer;
+}
+.cta.danger { background: linear-gradient(180deg, #ff8a7e, var(--danger)); box-shadow: 0 5px 0 #b23a2e, 0 10px 22px rgba(0,0,0,.35); color: #fff; }
+.ed-err { color: #c0392b; font-size: 13px; min-height: 1em; }
+.ed-nav { align-items: center; }
+.ed-nav .round { width: 40px; height: 40px; font-size: 20px; }
+.ed-pos { font-family: var(--f-mono); font-size: 12px; color: #5a6aa8; min-width: 64px; text-align: center; }
+.ed-spacer { flex: 1; }
+.ed-hint { font-family: var(--f-mono); font-size: 10px; color: #7d89b8; text-align: right; }
+.ed-saved { font-family: var(--f-mono); font-size: 11px; color: #2e8b57; }
+.ed-panel img.swap { animation: edSwap .22s ease; }
+@keyframes edSwap { from { opacity: .3; transform: scale(.98); } }
+.cta:disabled { opacity: .5; cursor: wait; }
+
+@media (prefers-reduced-motion: reduce) {
+  .screen, .cta { transition-duration: .01s; }
+  .mini { animation-duration: .01s; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ===== Экран со словом ===== -->
+<section class="screen" id="word">
+  <div class="head">
+    <span class="eyebrow" id="dateLabel2">Перед раскладом</span>
+    <h1>Напиши случайное слово</h1>
+  </div>
+  <form class="word-form" id="wordForm" autocomplete="off">
+    <label class="sr" for="wordInput">Случайное слово</label>
+    <input id="wordInput" class="word-input" type="text" maxlength="40" placeholder="первое, что пришло в голову" spellcheck="false">
+    <button class="cta off" id="wordGo" type="submit">Готово</button>
+  </form>
+  <div class="reply" id="reply" hidden>Очень интересно!</div>
+</section>
+
+<!-- ===== Экран ввода ===== -->
+<section class="screen" id="input" hidden>
+ <div class="cam" id="cam">
+  <div class="head">
+    <span class="eyebrow" id="dateLabel">Расклад на сегодня</span>
+    <h1>Составь три числа от 1 до <span id="maxN">…</span></h1>
+  </div>
+
+  <div class="slots" id="slots"></div>
+  <div class="hint" id="hint" aria-live="polite">Перетаскивай цифры в кружки. В одном окошке можно собрать число из нескольких цифр: 1, 5, 7 → 157. Нажми на цифру, чтобы убрать её.</div>
+
+  <div class="dial" id="dial">
+    <div class="hub">Тяни<br>цифру</div>
+  </div>
+
+  <div class="cta-slot"><button class="cta off" id="go" type="button">Побежали</button></div>
+ </div>
+</section>
+
+<!-- ===== Экран гадания ===== -->
+<section class="screen" id="reading" hidden>
+  <div class="topbar"><span id="progress">Карта 1 из 3</span><span class="pips" id="pips"></span></div>
+  <div class="stage" id="stage"></div>
+  <div class="dock"><button class="cta off" id="next" type="button">Дальше</button></div>
+</section>
+
+<!-- ===== Итог ===== -->
+<section class="screen" id="summary" hidden>
+  <div class="head">
+    <span class="eyebrow">Твой расклад</span>
+    <h1>Три карты на сегодня</h1>
+  </div>
+  <div class="spread" id="spread"></div>
+  <div class="note" id="note"></div>
+  <button class="cta" id="again" type="button">Погадать ещё</button>
+</section>
+
+<!-- ===== Редактор карт (виден только при запуске через server.py) ===== -->
+<button class="ed-btn" id="edBtn" type="button" hidden>✎ Карты</button>
+<div class="editor" id="editor" hidden>
+  <div class="ed-head">
+    <h2>Редактор карт<span class="count" id="edCount"></span></h2>
+    <button class="cta" id="edClose" type="button">Готово</button>
+  </div>
+  <div class="ed-grid" id="edGrid"></div>
+</div>
+<div class="ed-modal" id="edModal" hidden role="dialog" aria-modal="true" aria-label="Название карты">
+  <form class="ed-panel" id="edForm" autocomplete="off">
+    <img id="edImg" alt="">
+    <label for="edTitle">Название карты</label>
+    <input id="edTitle" type="text" maxlength="80" spellcheck="true">
+    <div class="ed-file" id="edFile"></div>
+    <div class="ed-err" id="edErr"></div>
+    <div class="ed-row ed-nav">
+      <button class="round" id="edPrev" type="button" aria-label="Предыдущая карта">‹</button>
+      <span class="ed-pos" id="edPos"></span>
+      <button class="round" id="edNext" type="button" aria-label="Следующая карта">›</button>
+      <span class="ed-spacer"></span>
+      <button class="ed-ghost" id="edCancel" type="button">Закрыть</button>
+      <button class="cta" id="edApply" type="submit">Применить</button>
+    </div>
+    <div class="ed-hint">Enter — применить и дальше · ↑ ↓ — соседние карты · ← → на краю текста тоже листают · Esc — закрыть</div>
+  </form>
+</div>
+<div class="ed-modal" id="edConfirm" hidden role="alertdialog" aria-modal="true" aria-labelledby="edConfirmText">
+  <div class="ed-panel small">
+    <p id="edConfirmText"></p>
+    <div class="ed-err" id="edDelErr"></div>
+    <div class="ed-row">
+      <button class="ed-ghost" id="edNo" type="button">Отмена</button>
+      <button class="cta danger" id="edYes" type="button">Удалить</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Просмотр одной карты ===== -->
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Просмотр карты">
+  <div id="viewerStage"></div>
+  <div class="viewer-bar">
+    <button class="round" id="vPrev" type="button" aria-label="Предыдущая карта">‹</button>
+    <button class="cta close" id="vClose" type="button">Закрыть</button>
+    <button class="round" id="vNext" type="button" aria-label="Следующая карта">›</button>
+  </div>
+</div>
+
+<script>
+(async () => {
+  const TZ = "Europe/Riga";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const T = ms => reduce ? 1 : ms;
+
+  /* ---------- детерминированный ГСЧ ---------- */
+  function hashStr(s) { let h = 2166136261 >>> 0; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+  /* ---------- колода из cards.json ---------- */
+  let CARDS = [];
+  try {
+    const res = await fetch("cards.json", { cache: "no-cache" });
+    CARDS = await res.json();
+  } catch (e) {
+    document.body.innerHTML = '<p style="color:#fff;padding:24px;font-family:sans-serif">Не удалось загрузить cards.json. Если открываешь файл двойным кликом, запусти в папке <code>python -m http.server</code> и открой localhost:8000.</p>';
+    return;
+  }
+  const TOTAL = CARDS.length;
+
+  // если картинки нет на сервере (например, cards.json и папка cards/ не совпадают), показываем заглушку
+  document.addEventListener("error", e => {
+    const el = e.target;
+    if (!(el instanceof HTMLImageElement) || !el.dataset.card) return;
+    const card = CARDS.find(c => String(c.id) === el.dataset.card);
+    if (!card || card._broken) return;
+    card._broken = true;
+    console.warn("Нет картинки:", card.img);
+    el.src = art(card);
+  }, true);
+
+  /* ---------- порядок на сегодня ---------- */
+  const now = new Date();
+  const dayKey = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+  const dayHuman = new Intl.DateTimeFormat("ru-RU", { timeZone: TZ, day: "numeric", month: "long" }).format(now);
+  function makeOrder(seed) {
+    const o = Array.from({ length: TOTAL }, (_, i) => i + 1), rnd = mulberry32(seed);
+    for (let i = o.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [o[i], o[j]] = [o[j], o[i]]; }
+    return o;
+  }
+
+  const order = makeOrder(hashStr("gadanie:" + dayKey));
+  const cardFor = n => CARDS[order[n - 1] - 1];
+  document.getElementById("maxN").textContent = TOTAL;
+  document.getElementById("dateLabel").textContent = "Расклад на " + dayHuman;
+  document.getElementById("dateLabel2").textContent = "Расклад на " + dayHuman;
+
+  /* ---------- процедурная картинка-заглушка ---------- */
+  const artCache = new Map();
+  function art(card) {
+    if (card.img && !card._broken) return card.img;
+    if (artCache.has(card.id)) return artCache.get(card.id);
+    const W = 600, H = 520, c = document.createElement("canvas"); c.width = W; c.height = H;
+    const g = c.getContext("2d"), r = mulberry32(card.id * 104729);
+    const hue = [190, 205, 250, 280, 330, 20, 160][Math.floor(r() * 7)];
+    const bg = g.createRadialGradient(W / 2, H * .45, 20, W / 2, H / 2, W * .75);
+    bg.addColorStop(0, `hsl(${hue} 45% 34%)`); bg.addColorStop(1, `hsl(${hue} 50% 9%)`);
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 90; i++) { g.fillStyle = `rgba(255,240,210,${.15 + r() * .6})`; g.beginPath(); g.arc(r() * W, r() * H, r() * 1.8 + .3, 0, 7); g.fill(); }
+    const cx = W / 2, cy = H / 2, gold = "#e3c47f";
+    g.strokeStyle = "rgba(227,196,127,.35)"; g.lineWidth = 1.5;
+    for (let k = 1; k <= 3; k++) { g.beginPath(); g.arc(cx, cy, 70 + k * 42, 0, 7); g.stroke(); }
+    g.strokeStyle = gold; g.fillStyle = gold; g.lineWidth = 5; g.lineCap = "round";
+    switch (card.id % 6) {
+      case 0: g.beginPath(); g.arc(cx, cy, 80, 0, 7); g.fill(); g.fillStyle = `hsl(${hue} 45% 24%)`; g.beginPath(); g.arc(cx + 38, cy - 18, 76, 0, 7); g.fill(); break;
+      case 1: g.beginPath(); g.ellipse(cx, cy, 110, 55, 0, 0, 7); g.stroke(); g.beginPath(); g.arc(cx, cy, 30, 0, 7); g.fill(); break;
+      case 2: g.beginPath(); g.arc(cx - 60, cy, 38, 0, 7); g.stroke(); g.beginPath(); g.moveTo(cx - 22, cy); g.lineTo(cx + 110, cy); g.moveTo(cx + 80, cy); g.lineTo(cx + 80, cy + 30); g.moveTo(cx + 104, cy); g.lineTo(cx + 104, cy + 22); g.stroke(); break;
+      case 3: g.beginPath(); g.arc(cx, cy, 44, 0, 7); g.fill(); for (let a = 0; a < 12; a++) { const t = a / 12 * Math.PI * 2; g.beginPath(); g.moveTo(cx + Math.cos(t) * 64, cy + Math.sin(t) * 64); g.lineTo(cx + Math.cos(t) * 112, cy + Math.sin(t) * 112); g.stroke(); } break;
+      case 4: g.beginPath(); g.moveTo(cx, cy - 105); g.lineTo(cx + 95, cy + 70); g.lineTo(cx - 95, cy + 70); g.closePath(); g.stroke(); g.beginPath(); g.arc(cx, cy + 18, 22, 0, 7); g.fill(); break;
+      default: g.beginPath(); for (let t = 0; t < 26; t += .05) { const rr = 4 * t; g.lineTo(cx + Math.cos(t) * rr, cy + Math.sin(t) * rr); } g.stroke();
+    }
+    g.fillStyle = "rgba(255,240,210,.5)"; g.font = "500 16px 'IBM Plex Mono', monospace"; g.textAlign = "center";
+    g.fillText("ЗАГЛУШКА · " + String(card.id).padStart(3, "0"), cx, H - 22);
+    const url = c.toDataURL("image/png"); artCache.set(card.id, url); return url;
+  }
+
+  /* ---------- частицы (след за цифрой) ---------- */
+  // Сюда можно подставить свой спрайт частицы: PARTICLE_SPRITE = new Image(); PARTICLE_SPRITE.src = "spark.png";
+  let PARTICLE_SPRITE = null;
+  const fx = document.getElementById("fx"), fxc = fx.getContext("2d");
+  let parts = [], fxRunning = false, DPR = 1;
+  function fxResize() { DPR = Math.min(2, devicePixelRatio || 1); fx.width = innerWidth * DPR; fx.height = innerHeight * DPR; }
+  fxResize(); addEventListener("resize", fxResize);
+  function spawn(x, y, n, spread, dirX = 0, dirY = 0) {
+    if (reduce) n = Math.ceil(n / 4);
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * Math.PI * 2, sp = Math.random() * spread;
+      const kind = Math.random() < .62 ? "star" : "dot";
+      parts.push({
+        x, y, kind,
+        vx: Math.cos(a) * sp - dirX * .08, vy: Math.sin(a) * sp - dirY * .08 - .4,
+        life: 0, max: 450 + Math.random() * 500,
+        size: kind === "star" ? 5 + Math.random() * 7 : 1.5 + Math.random() * 2.5,
+        rot: Math.random() * 6.28, vr: (Math.random() - .5) * .25,
+        hue: Math.random() < .75 ? "gold" : "cyan"
+      });
+    }
+    if (!fxRunning) { fxRunning = true; last = performance.now(); requestAnimationFrame(tick); }
+  }
+  function star(g, r) {
+    g.beginPath();
+    for (let i = 0; i < 8; i++) { const rr = i % 2 ? r * .28 : r, t = i * Math.PI / 4; g.lineTo(Math.cos(t) * rr, Math.sin(t) * rr); }
+    g.closePath(); g.fill();
+  }
+  let last = 0;
+  function tick(now) {
+    const dt = Math.min(40, now - last); last = now;
+    fxc.setTransform(DPR, 0, 0, DPR, 0, 0); fxc.clearRect(0, 0, innerWidth, innerHeight);
+    fxc.globalCompositeOperation = "lighter";
+    parts = parts.filter(p => (p.life += dt) < p.max);
+    for (const p of parts) {
+      const k = dt / 16; p.x += p.vx * k; p.y += p.vy * k; p.vy += .06 * k; p.vx *= .97; p.vy *= .97; p.rot += p.vr * k;
+      const t = p.life / p.max, a = 1 - t, s = p.size * (1 - t * .6);
+      fxc.save(); fxc.translate(p.x, p.y); fxc.rotate(p.rot); fxc.globalAlpha = a;
+      if (PARTICLE_SPRITE && PARTICLE_SPRITE.complete) { fxc.drawImage(PARTICLE_SPRITE, -s * 1.5, -s * 1.5, s * 3, s * 3); }
+      else if (p.kind === "star") { fxc.fillStyle = p.hue === "gold" ? "#ffd84a" : "#7feaff"; fxc.shadowColor = fxc.fillStyle; fxc.shadowBlur = 10; star(fxc, s); }
+      else { fxc.fillStyle = p.hue === "gold" ? "#fff2a8" : "#bff6ff"; fxc.beginPath(); fxc.arc(0, 0, s, 0, 7); fxc.fill(); }
+      fxc.restore();
+    }
+    if (parts.length) requestAnimationFrame(tick); else { fxRunning = false; fxc.clearRect(0, 0, innerWidth, innerHeight); }
+  }
+
+  /* ---------- наклон с переливом ---------- */
+  function bindTilt(host, target, amt = 26) {
+    let resetT;
+    const move = e => {
+      const r = host.getBoundingClientRect();
+      const px = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), py = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+      target.style.setProperty("--ry", ((px - .5) * amt).toFixed(2) + "deg");
+      target.style.setProperty("--rx", ((.5 - py) * amt).toFixed(2) + "deg");
+      target.classList.add("live"); clearTimeout(resetT);
+    };
+    const reset = () => {
+      target.classList.remove("live");
+      ["--rx", "--ry"].forEach(v => target.style.setProperty(v, "0deg"));
+    };
+    host.addEventListener("pointermove", move);
+    host.addEventListener("pointerdown", move);
+    host.addEventListener("pointerleave", reset);
+    host.addEventListener("pointerup", e => { if (e.pointerType !== "mouse") resetT = setTimeout(reset, 700); });
+    host.addEventListener("pointercancel", reset);
+  }
+
+  /* ---------- ввод чисел ---------- */
+  // В каждом окошке столько кружков, сколько цифр в максимальном номере.
+  // Цифру кладут в конкретный кружок; число читается слева направо по заполненным кружкам
+  // (пустые пропускаются): [_,1,5] = 15, [2,_,4] = 24. Клик по цифре убирает её.
+  const slotsEl = document.getElementById("slots"), hint = document.getElementById("hint"), goBtn = document.getElementById("go");
+  const DEFAULT_HINT = hint.textContent;
+  const DIGITS = Math.max(1, String(TOTAL).length);
+  const slots = [0, 1, 2].map(i => {
+    const col = document.createElement("div"); col.className = "slot-col";
+    const lab = document.createElement("div"); lab.className = "slot-val"; lab.setAttribute("aria-hidden", "true");
+    const b = document.createElement("div");
+    b.className = "slot"; b.id = "slot" + i; b.tabIndex = 0; b.setAttribute("role", "group");
+    col.append(lab, b); slotsEl.appendChild(col);
+    return { el: b, lab, cells: Array(DIGITS).fill("") };
+  });
+  const str = s => s.cells.join("");
+  const val = s => str(s) === "" ? null : parseInt(str(s), 10);
+
+  function renderSlot(s, i, fresh = -1) {
+    s.el.innerHTML = `<span class="idx">${i + 1}</span><span class="discs">` +
+      s.cells.map((ch, k) => ch
+        ? `<button type="button" class="disc on${k === fresh ? " new" : ""}" data-k="${k}" aria-label="Убрать цифру ${ch}">${ch}</button>`
+        : `<span class="disc" data-k="${k}"></span>`).join("") +
+      `</span>`;
+    s.el.setAttribute("aria-label", `Число ${i + 1}: ${str(s) || "пусто"}`);
+    const v = val(s), txt = v === null ? "" : String(v);
+    if (s.lab.textContent !== txt) {
+      s.lab.textContent = txt;
+      if (txt) { s.lab.classList.remove("bump"); void s.lab.offsetWidth; s.lab.classList.add("bump"); }
+    }
+  }
+  slots.forEach((s, i) => renderSlot(s, i));
+
+  let hintTimer;
+  function say(msg, warn) {
+    hint.textContent = msg; hint.classList.toggle("warn", !!warn);
+    clearTimeout(hintTimer);
+    if (warn) hintTimer = setTimeout(() => validate(), 2200);
+  }
+  function reject(i, msg) {
+    const el = slots[i].el; el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake");
+    say(msg, true);
+  }
+  // положить цифру d в кружок k окошка i (занятый кружок заменяется)
+  function tryPlace(i, k, d) {
+    const s = slots[i], next = s.cells.slice(); next[k] = d;
+    const v = parseInt(next.join(""), 10);
+    if (v > TOTAL) return reject(i, `Получится ${v}, а нужно число от 1 до ${TOTAL}.`), false;
+    s.cells = next; renderSlot(s, i, k);
+    validate(); return true;
+  }
+  function removeAt(i, k) {
+    const s = slots[i]; if (!s.cells[k]) return;
+    s.cells[k] = ""; renderSlot(s, i); validate();
+  }
+  function validate() {
+    const vals = slots.map(val);
+    const dupSet = new Set(vals.filter((v, i) => v !== null && v > 0 && vals.indexOf(v) !== i));
+    slots.forEach((s, i) => {
+      s.el.classList.toggle("dup", vals[i] !== null && dupSet.has(vals[i]));
+      s.el.classList.toggle("done", vals[i] !== null && vals[i] >= 1);
+      s.lab.classList.toggle("bad", vals[i] !== null && (vals[i] < 1 || dupSet.has(vals[i])));
+    });
+    const zero = vals.some(v => v === 0);
+    const ok = vals.every(v => v !== null && v >= 1) && dupSet.size === 0;
+    goBtn.classList.toggle("off", !ok);
+    if (dupSet.size) say("Числа должны быть разными.", false), hint.classList.add("warn");
+    else if (zero) say("Одни нули не подходят: число должно быть от 1.", false), hint.classList.add("warn");
+    else if (ok) say("Готово. Можно бежать.", false);
+    else say(DEFAULT_HINT, false);
+    return ok;
+  }
+  slots.forEach((s, i) => {
+    s.el.addEventListener("click", e => {
+      const d = e.target.closest(".disc.on");
+      if (d) removeAt(i, +d.dataset.k);
+    });
+    // клавиатура: цифра встаёт в самый правый пустой кружок после уже набранных, Backspace убирает последнюю
+    s.el.addEventListener("keydown", e => {
+      if (/^[0-9]$/.test(e.key)) {
+        e.preventDefault();
+        const free = s.cells.indexOf("");
+        if (free === -1) return reject(i, "Все кружки заняты. Нажми на цифру, чтобы убрать её.");
+        const packed = s.cells.filter(Boolean).concat(e.key);
+        const next = Array(DIGITS - packed.length).fill("").concat(packed);
+        const v = parseInt(next.join(""), 10);
+        if (v > TOTAL) return reject(i, `Получится ${v}, а нужно число от 1 до ${TOTAL}.`);
+        s.cells = next; renderSlot(s, i, DIGITS - 1); validate();
+      } else if (e.key === "Backspace" || e.key === "Delete") {
+        e.preventDefault();
+        for (let k = DIGITS - 1; k >= 0; k--) if (s.cells[k]) { removeAt(i, k); break; }
+      }
+    });
+  });
+
+  /* ---------- циферблат и перетаскивание ---------- */
+  const dial = document.getElementById("dial");
+  // порядок цифр на циферблате свой при каждом открытии страницы
+  const DIAL = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  for (let i = DIAL.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [DIAL[i], DIAL[j]] = [DIAL[j], DIAL[i]]; }
+  DIAL.forEach((d, k) => {
+    const a = (-90 + 18 + k * 36) * Math.PI / 180;
+    const el = document.createElement("div");
+    el.className = "digit"; el.textContent = d; el.dataset.d = d;
+    el.style.left = (50 + 40 * Math.cos(a)) + "%"; el.style.top = (50 + 40 * Math.sin(a)) + "%";
+    dial.appendChild(el);
+    bindDrag(el);
+  });
+
+  // кружок, над которым цифра: ближайший по горизонтали в этом окошке
+  function discAt(i, x) {
+    const discs = [...slots[i].el.querySelectorAll(".disc")];
+    let best = 0, bd = Infinity;
+    discs.forEach((d, k) => { const r = d.getBoundingClientRect(), c = Math.abs(r.left + r.width / 2 - x); if (c < bd) { bd = c; best = k; } });
+    return best;
+  }
+  function markTarget(i, k) {
+    document.querySelectorAll(".disc.target").forEach(d => d.classList.remove("target"));
+    if (i > -1) { const d = slots[i].el.querySelectorAll(".disc")[k]; d && d.classList.add("target"); }
+  }
+  function slotAt(x, y) {
+    return slots.findIndex(s => { const r = s.el.getBoundingClientRect(); const pad = 10; return x > r.left - pad && x < r.right + pad && y > r.top - pad && y < r.bottom + pad; });
+  }
+  const cam = document.getElementById("cam");
+  const ZOOM_T = "3.2s", ZOOM_E = "cubic-bezier(.3,.1,.3,1)";
+  function focusSlot(i) {
+    const el = slots[i].el;
+    clearTimeout(el._fadeT); el.classList.remove("fading");
+    el.style.setProperty("--dimT", reduce ? ".2s" : ZOOM_T); el.style.setProperty("--dimE", ZOOM_E);
+    el.classList.add("hover", "focus");
+    if (reduce) return;
+    // точка приближения в координатах .cam без текущего масштаба
+    const cs = getComputedStyle(cam).transform;
+    cam.style.transition = "none"; cam.style.transform = "none";
+    const cr = cam.getBoundingClientRect(), r = el.getBoundingClientRect();
+    cam.style.transform = cs === "none" ? "" : cs;
+    cam.style.transformOrigin = `${r.left - cr.left + r.width / 2}px ${r.top - cr.top + r.height / 2}px`;
+    void cam.offsetWidth;
+    cam.style.transition = `transform ${ZOOM_T} ${ZOOM_E}`;
+    cam.style.transform = "scale(1.18)";
+  }
+  function unfocus(i) {
+    const el = slots[i].el;
+    el.style.setProperty("--dimT", ".6s"); el.style.setProperty("--dimE", "ease");
+    el.classList.remove("hover", "focus"); el.classList.add("fading");
+    clearTimeout(el._fadeT); el._fadeT = setTimeout(() => el.classList.remove("fading"), 650);
+    cam.style.transition = "transform .6s cubic-bezier(.2,.8,.2,1)";
+    cam.style.transform = "";
+  }
+  function bindDrag(el) {
+    let ghost = null, hover = -1, ox = 0, oy = 0;
+    let lx = 0, ly = 0;
+    const place = (x, y) => {
+      ghost.style.transform = `translate(${x - 28}px, ${y - 28}px) scale(1.12)`;
+      const dx = x - lx, dy = y - ly, dist = Math.hypot(dx, dy);
+      const steps = Math.min(12, Math.floor(dist / 7));
+      for (let i = 1; i <= steps; i++) spawn(lx + dx * i / steps, ly + dy * i / steps, 1, 1.4, dx / (steps || 1), dy / (steps || 1));
+      if (steps) { lx = x; ly = y; }
+    };
+    el.addEventListener("pointerdown", e => {
+      if (e.button !== 0) return;
+      e.preventDefault(); el.setPointerCapture(e.pointerId);
+      const r = el.getBoundingClientRect(); ox = r.left + r.width / 2; oy = r.top + r.height / 2;
+      ghost = document.createElement("div"); ghost.className = "ghost"; ghost.textContent = el.dataset.d;
+      document.body.appendChild(ghost); lx = e.clientX; ly = e.clientY; place(e.clientX, e.clientY); el.classList.add("lifted");
+      spawn(e.clientX, e.clientY, 10, 2.5);
+    });
+    el.addEventListener("pointermove", e => {
+      if (!ghost) return; place(e.clientX, e.clientY);
+      const h = slotAt(e.clientX, e.clientY);
+      if (h !== hover) { if (hover > -1) unfocus(hover); hover = h; if (h > -1) focusSlot(h); }
+      markTarget(h, h > -1 ? discAt(h, e.clientX) : 0);
+    });
+    const end = (e, cancelled) => {
+      if (!ghost) return;
+      const g = ghost; ghost = null; el.classList.remove("lifted");
+      if (hover > -1) unfocus(hover);
+      const i = cancelled ? -1 : slotAt(e.clientX, e.clientY); hover = -1;
+      const k = i > -1 ? discAt(i, e.clientX) : -1;
+      markTarget(-1);
+      if (i > -1 && tryPlace(i, k, el.dataset.d)) {
+        const r = slots[i].el.querySelectorAll(".disc")[k].getBoundingClientRect();
+        setTimeout(() => spawn(r.left + r.width / 2, r.top + r.height / 2, 28, 4.5), T(180));
+        g.animate([{ transform: g.style.transform, opacity: 1 }, { transform: `translate(${r.left + r.width / 2 - 28}px, ${r.top + r.height / 2 - 28}px) scale(.3)`, opacity: 0 }], { duration: T(220), easing: "ease-in", fill: "forwards" }).onfinish = () => g.remove();
+      } else {
+        g.animate([{ transform: g.style.transform, opacity: 1 }, { transform: `translate(${ox - 28}px, ${oy - 28}px) scale(1)`, opacity: .2 }], { duration: T(320), easing: "cubic-bezier(.3,.7,.3,1)", fill: "forwards" }).onfinish = () => g.remove();
+      }
+    };
+    el.addEventListener("pointerup", e => end(e, false));
+    el.addEventListener("pointercancel", e => end(e, true));
+  }
+
+  /* ---------- гадание ---------- */
+  const inputScr = document.getElementById("input"), readScr = document.getElementById("reading"), sumScr = document.getElementById("summary");
+  const stage = document.getElementById("stage"), nextBtn = document.getElementById("next"), progress = document.getElementById("progress"), pips = document.getElementById("pips");
+  let spread = [], idx = 0, current = null, busy = false;
+
+  function swap(from, to, then) {
+    from.classList.add("leaving");
+    setTimeout(() => { from.hidden = true; from.classList.remove("leaving"); to.hidden = false; then && then(); }, T(700));
+  }
+
+  goBtn.addEventListener("click", () => {
+    if (!validate()) return;
+    spread = slots.map(s => { const n = val(s); return { n, card: cardFor(n) }; });
+    idx = 0; stage.innerHTML = "";
+    goBtn.classList.add("off");
+    swap(inputScr, readScr, () => setTimeout(deal, T(150)));
+  });
+
+  function updateProgress() {
+    progress.textContent = `Карта ${idx + 1} из 3`;
+    pips.innerHTML = spread.map((_, i) => `<span class="pip${i <= idx ? " on" : ""}"></span>`).join("");
+  }
+
+  function cardInner(n, card) {
+    return `
+      <div class="shadow"></div>
+      <div class="tilt">
+        <div class="card">
+          <div class="face back">
+            <div class="ring"><div><div class="num">${n}</div></div></div>
+            <div class="lbl">сегодня · ${dayHuman}</div>
+            <div class="tap">нажми, чтобы открыть</div>
+          </div>
+          <div class="face front">
+            <img alt="" data-card="${card.id}" src="${art(card)}">
+            <div class="body"><div class="inner">
+              <h2>${card.title}</h2>
+              ${card.text ? `<p>${card.text}</p>` : ""}
+            </div></div>
+            <span class="no">№ ${String(card.id).padStart(3, "0")}</span>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function deal() {
+    updateProgress();
+    const { n, card } = spread[idx];
+    const wrap = document.createElement("button");
+    wrap.type = "button"; wrap.className = "card-wrap"; wrap.id = "card" + idx;
+    wrap.setAttribute("aria-label", `Карта под числом ${n}. Нажми, чтобы перевернуть`);
+    wrap.innerHTML = `
+${cardInner(n, card)}`;
+    stage.appendChild(wrap);
+    current = { wrap, card: wrap.querySelector(".card"), shadow: wrap.querySelector(".shadow"), open: false };
+    bindTilt(wrap, wrap.querySelector(".tilt"));
+
+    busy = true;
+    const fall = `translateY(calc(-50vh - 110%)) rotate(-5deg)`;
+    const a = wrap.animate([
+      { transform: fall, offset: 0 },
+      { transform: "translateY(10px) rotate(.6deg)", offset: .78, easing: "cubic-bezier(.3,.6,.4,1)" },
+      { transform: "translateY(0) rotate(0deg)", offset: 1 }
+    ], { duration: T(1250), easing: "cubic-bezier(.2,.7,.25,1)" });
+    current.shadow.animate([{ opacity: 0, transform: "scale(.4)" }, { opacity: 1, transform: "scale(1)" }], { duration: T(1250), easing: "ease-out" });
+    a.onfinish = () => { busy = false; wrap.focus({ preventScroll: true }); };
+    wrap.addEventListener("click", flip);
+  }
+
+  function flip() {
+    if (busy || !current || current.open) return;
+    busy = true; current.open = true;
+    current.wrap.querySelector(".tap").style.opacity = 0;
+    const D = T(2300);
+    const a = current.card.animate([
+      { transform: "translateY(0) translateZ(0) rotateY(0deg) rotateZ(0deg)", offset: 0, easing: "cubic-bezier(.3,0,.4,1)" },
+      { transform: "translateY(-44px) translateZ(40px) rotateY(20deg) rotateZ(-1.5deg)", offset: .22, easing: "cubic-bezier(.45,0,.55,1)" },
+      { transform: "translateY(-52px) translateZ(50px) rotateY(160deg) rotateZ(1deg)", offset: .66, easing: "cubic-bezier(.3,0,.5,1)" },
+      { transform: "translateY(-30px) translateZ(26px) rotateY(180deg) rotateZ(0deg)", offset: .8, easing: "cubic-bezier(.4,0,.6,1)" },
+      { transform: "translateY(2px) translateZ(0) rotateY(180deg)", offset: .94, easing: "ease-out" },
+      { transform: "translateY(0) translateZ(0) rotateY(180deg)", offset: 1 }
+    ], { duration: D, fill: "forwards" });
+    current.shadow.animate([
+      { transform: "scale(1)", opacity: 1, filter: "blur(10px)", offset: 0 },
+      { transform: "scale(1.25) translateY(16px)", opacity: .35, filter: "blur(22px)", offset: .3 },
+      { transform: "scale(1.28) translateY(18px)", opacity: .3, filter: "blur(24px)", offset: .7 },
+      { transform: "scale(1)", opacity: 1, filter: "blur(10px)", offset: .94 },
+      { transform: "scale(1)", opacity: 1, filter: "blur(10px)", offset: 1 }
+    ], { duration: D, easing: "ease-in-out", fill: "forwards" });
+    setTimeout(() => { const r = current.wrap.getBoundingClientRect(); spawn(r.left + r.width / 2, r.top + r.height * .35, 30, 5); }, D * .55);
+    a.onfinish = () => {
+      busy = false;
+      current.wrap.setAttribute("aria-disabled", "true"); current.wrap.style.cursor = "default";
+      current.wrap.setAttribute("aria-label", current.wrap.querySelector("h2").textContent);
+      nextBtn.textContent = idx < 2 ? "Дальше" : "Весь расклад";
+      nextBtn.classList.remove("off"); nextBtn.focus({ preventScroll: true });
+    };
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (busy || !current || !current.open) return;
+    busy = true; nextBtn.classList.add("off");
+    const w = current.wrap;
+    w.animate([
+      { transform: "translateY(0) rotate(0deg)", opacity: 1 },
+      { transform: "translateY(calc(50vh + 110%)) rotate(4deg)", opacity: .2 }
+    ], { duration: T(650), easing: "cubic-bezier(.5,0,.8,.4)", fill: "forwards" }).onfinish = () => {
+      w.remove(); busy = false; idx++;
+      if (idx < spread.length) deal(); else showSummary();
+    };
+  });
+
+  function showSummary() {
+    const box = document.getElementById("spread");
+    box.innerHTML = spread.map((s, i) => `
+      <button type="button" class="mini-btn" id="mini${i}" style="animation-delay:${T(i * 160)}ms" aria-label="Открыть карту: ${s.card.title}">
+        <div class="mini">
+          <img alt="" data-card="${s.card.id}" src="${art(s.card)}">
+          <div class="mbody">
+            <h3>${s.card.title}</h3>
+            ${s.card.text ? `<p class="mtext">${s.card.text}</p>` : ""}
+          </div>
+          <span class="no">число ${s.n} · № ${String(s.card.id).padStart(3, "0")}</span>
+        </div>
+      </button>`).join("");
+    box.querySelectorAll(".mini-btn").forEach((b, i) => { bindTilt(b, b.querySelector(".mini"), 30); b.addEventListener("click", () => openViewer(i)); });
+    document.getElementById("note").textContent = `Гадание обновляется раз в день. Сегодня эти же числа дадут эти же карты.`;
+    swap(readScr, sumScr);
+  }
+
+  const viewer = document.getElementById("viewer"), vStage = document.getElementById("viewerStage");
+  const vPrev = document.getElementById("vPrev"), vNext = document.getElementById("vNext"), vClose = document.getElementById("vClose");
+  let vIdx = 0;
+  function openViewer(i) {
+    vIdx = i; viewer.hidden = false; renderViewer(); vClose.focus({ preventScroll: true });
+  }
+  function renderViewer() {
+    const { n, card } = spread[vIdx];
+    vStage.innerHTML = `<div class="card-wrap" id="viewerCard">${cardInner(n, card)}</div>`;
+    const w = vStage.firstElementChild; bindTilt(w, w.querySelector(".tilt"));
+    vPrev.disabled = vIdx === 0; vNext.disabled = vIdx === spread.length - 1;
+  }
+  function closeViewer() { viewer.hidden = true; const m = document.getElementById("mini" + vIdx); m && m.focus({ preventScroll: true }); }
+  vPrev.addEventListener("click", () => { if (vIdx > 0) { vIdx--; renderViewer(); } });
+  vNext.addEventListener("click", () => { if (vIdx < spread.length - 1) { vIdx++; renderViewer(); } });
+  vClose.addEventListener("click", closeViewer);
+  viewer.addEventListener("click", e => { if (e.target === viewer) closeViewer(); });
+  addEventListener("keydown", e => {
+    if (viewer.hidden) return;
+    if (e.key === "Escape") closeViewer();
+    if (e.key === "ArrowLeft") vPrev.click();
+    if (e.key === "ArrowRight") vNext.click();
+  });
+
+  /* ---------- редактор карт: работает только с локальным server.py ---------- */
+  {
+    const $ = id => document.getElementById(id);
+    const edBtn = $("edBtn"), editor = $("editor"), grid = $("edGrid"), count = $("edCount");
+    const modal = $("edModal"), form = $("edForm"), img = $("edImg"), input = $("edTitle"), fileEl = $("edFile"), err = $("edErr"), apply = $("edApply");
+    const conf = $("edConfirm"), confText = $("edConfirmText"), yes = $("edYes"), no = $("edNo"), delErr = $("edDelErr");
+    let list = CARDS.slice(), dirty = false, editing = null, deleting = null;
+    const pad = n => String(n).padStart(Math.max(3, String(list.length).length), "0");
+    const safeName = t => ((t || "").replace(/[<>:"/\\|?*#%&{}$!'@+`=\x00-\x1f]/g, "").trim().replace(/\s+/g, "_").slice(0, 40).replace(/^[._]+|[._]+$/g, "")) || "card";
+    const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    try {
+      const r = await fetch("/api/ping", { cache: "no-store" });
+      if (r.ok && (await r.json()).editor) edBtn.hidden = false;
+    } catch (e) { /* обычный хостинг: редактора нет */ }
+
+    async function api(path, body) {
+      const r = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || `Сервер ответил ${r.status}`);
+      return j;
+    }
+
+    function render() {
+      count.textContent = ` · ${list.length}`;
+      grid.innerHTML = list.map(c => `
+        <div class="ed-tile">
+          <button type="button" class="ed-open" data-id="${c.id}">
+            <img loading="lazy" alt="" src="${esc(c.img)}">
+            <span class="n">${pad(c.id)}</span>
+            <span class="t">${esc(c.title)}</span>
+          </button>
+          <button type="button" class="ed-del" data-id="${c.id}" aria-label="Удалить карту ${pad(c.id)}">×</button>
+        </div>`).join("");
+    }
+
+    edBtn.addEventListener("click", () => { render(); editor.hidden = false; edBtn.hidden = true; });
+    $("edClose").addEventListener("click", () => {
+      if (dirty) { location.reload(); return; }
+      editor.hidden = true; edBtn.hidden = false;
+    });
+
+    grid.addEventListener("click", e => {
+      const del = e.target.closest(".ed-del"), open = e.target.closest(".ed-open");
+      if (del) return askDelete(+del.dataset.id);
+      if (open) return openEdit(+open.dataset.id, open);
+    });
+
+    function showFile() {
+      if (!editing) return;
+      const now = editing.img.split("/").pop(), next = `${pad(editing.id)}_${safeName(input.value)}.webp`;
+      fileEl.textContent = now === next ? `Файл: ${now}` : `Файл: ${now}  →  ${next}`;
+    }
+    const posEl = $("edPos"), prevBtn = $("edPrev"), nextBtn = $("edNext");
+    let busySave = false;
+    function fill() {
+      const k = list.indexOf(editing);
+      img.src = editing.img; input.value = editing.title; err.textContent = ""; showFile();
+      posEl.textContent = `${k + 1} / ${list.length}`;
+      prevBtn.disabled = k <= 0; nextBtn.disabled = k >= list.length - 1;
+      img.classList.remove("swap"); void img.offsetWidth; img.classList.add("swap");
+      const tile = grid.querySelector(`.ed-open[data-id="${editing.id}"]`);
+      tile && tile.scrollIntoView({ block: "nearest" });
+    }
+    // сохранить текущую (если поменялась) и перейти на карту со сдвигом step; step 0 = просто сохранить
+    async function commitAndGo(step) {
+      if (busySave || !editing) return;
+      const k = list.indexOf(editing);
+      const title = input.value.trim();
+      if (!title) { err.textContent = "Название не может быть пустым."; return; }
+      if (title !== editing.title) {
+        busySave = true; apply.disabled = true; err.textContent = "";
+        try {
+          const j = await api("/api/rename", { id: editing.id, title });
+          list = j.cards; dirty = true; render();
+        } catch (ex) { err.textContent = "Не сохранилось: " + ex.message; busySave = false; apply.disabled = false; return; }
+        busySave = false; apply.disabled = false;
+      }
+      const target = k + step;
+      if (step === 0 || target < 0 || target >= list.length) {
+        if (step > 0 && target >= list.length) { closeEdit(); return; }   // Enter на последней: закрыть
+        editing = list[k]; fill(); return;
+      }
+      editing = list[target]; fill(); input.focus(); input.select();
+    }
+    function openEdit(id, tile) {
+      editing = list.find(c => c.id === id); if (!editing) return;
+      modal.hidden = false; fill();
+      const from = tile.getBoundingClientRect(), to = form.getBoundingClientRect();
+      form.animate([
+        { transform: `translate(${from.left + from.width / 2 - (to.left + to.width / 2)}px, ${from.top + from.height / 2 - (to.top + to.height / 2)}px) scale(${from.width / to.width})`, opacity: .6 },
+        { transform: "none", opacity: 1 }
+      ], { duration: T(320), easing: "cubic-bezier(.2,.8,.2,1)" });
+      input.focus(); input.select();
+    }
+    function closeEdit() { modal.hidden = true; editing = null; }
+    input.addEventListener("input", showFile);
+    $("edCancel").addEventListener("click", closeEdit);
+    modal.addEventListener("click", e => { if (e.target === modal) closeEdit(); });
+    form.addEventListener("submit", e => { e.preventDefault(); commitAndGo(1); });   // Enter / «Применить»: сохранить и дальше
+    prevBtn.addEventListener("click", () => commitAndGo(-1));
+    nextBtn.addEventListener("click", () => commitAndGo(1));
+    input.addEventListener("keydown", e => {
+      const atStart = input.selectionStart === 0 && input.selectionEnd === 0;
+      const atEnd = input.selectionStart === input.value.length && input.selectionEnd === input.value.length;
+      if (e.key === "ArrowDown" || e.key === "PageDown" || (e.key === "ArrowRight" && atEnd && !e.shiftKey)) { e.preventDefault(); commitAndGo(1); }
+      else if (e.key === "ArrowUp" || e.key === "PageUp" || (e.key === "ArrowLeft" && atStart && !e.shiftKey)) { e.preventDefault(); commitAndGo(-1); }
+    });
+
+    function askDelete(id) {
+      deleting = list.find(c => c.id === id); if (!deleting) return;
+      confText.innerHTML = `Удалить карту ${pad(deleting.id)} «${esc(deleting.title)}»?<small>Картинка переедет в папку _deleted, оригинал не тронется. Номера карт после неё сдвинутся на один.</small>`;
+      delErr.textContent = ""; conf.hidden = false; no.focus();
+    }
+    function closeDelete() { conf.hidden = true; deleting = null; }
+    no.addEventListener("click", closeDelete);
+    conf.addEventListener("click", e => { if (e.target === conf) closeDelete(); });
+    yes.addEventListener("click", async () => {
+      yes.disabled = true;
+      try {
+        const j = await api("/api/delete", { id: deleting.id });
+        list = j.cards; dirty = true; render(); closeDelete();
+      } catch (ex) { delErr.textContent = "Не удалилось: " + ex.message; }
+      yes.disabled = false;
+    });
+
+    addEventListener("keydown", e => {
+      if (e.key !== "Escape") return;
+      if (!conf.hidden) closeDelete();
+      else if (!modal.hidden) closeEdit();
+    });
+  }
+
+  /* ---------- экран со словом (слово нигде не сохраняется) ---------- */
+  const wordScr = document.getElementById("word"), wordForm = document.getElementById("wordForm"),
+        wordInput = document.getElementById("wordInput"), wordGo = document.getElementById("wordGo"), reply = document.getElementById("reply");
+  wordInput.addEventListener("input", () => wordGo.classList.toggle("off", !wordInput.value.trim()));
+  wordForm.addEventListener("submit", e => {
+    e.preventDefault();
+    if (!wordInput.value.trim()) return;
+    wordInput.value = ""; wordInput.blur();
+    wordForm.hidden = true; reply.hidden = false;
+    const r = reply.getBoundingClientRect();
+    setTimeout(() => spawn(r.left + r.width / 2, r.top + r.height / 2, 34, 5), T(250));
+    setTimeout(() => swap(wordScr, inputScr), T(1700));
+  });
+  function resetWord() { wordForm.hidden = false; reply.hidden = true; wordGo.classList.add("off"); wordInput.value = ""; }
+
+  document.getElementById("again").addEventListener("click", () => {
+    slots.forEach((s, i) => { s.cells = Array(DIGITS).fill(""); renderSlot(s, i); });
+    validate(); resetWord();
+    swap(sumScr, wordScr, () => wordInput.focus({ preventScroll: true }));
+  });
+})();
+</script>
+</body>
+</html>
