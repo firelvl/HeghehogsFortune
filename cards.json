@@ -1,0 +1,1822 @@
+[
+  {
+    "id": 1,
+    "img": "cards/001_Вода_из_КУВШИНА.webp",
+    "title": "Вода из КУВШИНА",
+    "text": "",
+    "src": "0fzOzo8ViP8.jpg"
+  },
+  {
+    "id": 2,
+    "img": "cards/002_Продолжай.webp",
+    "title": "Продолжай.",
+    "text": "",
+    "src": "0z9yhzs9Z3c.jpg"
+  },
+  {
+    "id": 3,
+    "img": "cards/003_Чудеса_начинаются.webp",
+    "title": "Чудеса начинаются!",
+    "text": "",
+    "src": "1qbZ75Ny_i8.jpg"
+  },
+  {
+    "id": 4,
+    "img": "cards/004_Можем.webp",
+    "title": "Можем?",
+    "text": "",
+    "src": "1rBMjsq3Mi8.jpg"
+  },
+  {
+    "id": 5,
+    "img": "cards/005_Ты_красный.webp",
+    "title": "Ты красный.",
+    "text": "",
+    "src": "3_9KV4-db3M.jpg"
+  },
+  {
+    "id": 6,
+    "img": "cards/006_Дельфин.webp",
+    "title": "Дельфин...",
+    "text": "",
+    "src": "4RTTZNycI1c.jpg"
+  },
+  {
+    "id": 7,
+    "img": "cards/007_Ключ.webp",
+    "title": "Ключ",
+    "text": "",
+    "src": "5hvQInVhw70.jpg"
+  },
+  {
+    "id": 8,
+    "img": "cards/008_Две_пары_ног.webp",
+    "title": "Две пары ног",
+    "text": "",
+    "src": "6HbU2V1su24.jpg"
+  },
+  {
+    "id": 9,
+    "img": "cards/009_Лучше_сдаться.webp",
+    "title": "Лучше сдаться.",
+    "text": "",
+    "src": "6ublCpQWC34.jpg"
+  },
+  {
+    "id": 10,
+    "img": "cards/010_Не_делай_такое_лицо.webp",
+    "title": "Не делай такое лицо.",
+    "text": "",
+    "src": "7BzKi-DNpn8.jpg"
+  },
+  {
+    "id": 11,
+    "img": "cards/011_Каша.webp",
+    "title": "Каша.",
+    "text": "",
+    "src": "7J9EfMoSe0Y.jpg"
+  },
+  {
+    "id": 12,
+    "img": "cards/012_Вторая_группа.webp",
+    "title": "Вторая группа",
+    "text": "",
+    "src": "7Uxxc_4ardg.jpg"
+  },
+  {
+    "id": 13,
+    "img": "cards/013_Я_продавец_киоска.webp",
+    "title": "Я продавец киоска",
+    "text": "",
+    "src": "7WhrfgRm2aM.jpg"
+  },
+  {
+    "id": 14,
+    "img": "cards/014_Бургер.webp",
+    "title": "Бургер",
+    "text": "",
+    "src": "8C4VM2nu5cI.jpg"
+  },
+  {
+    "id": 15,
+    "img": "cards/015_Загрузка.webp",
+    "title": "Загрузка",
+    "text": "",
+    "src": "9BV2zu8kKcA.jpg"
+  },
+  {
+    "id": 16,
+    "img": "cards/016_Предательство.webp",
+    "title": "Предательство",
+    "text": "",
+    "src": "9OIja86V1s8.jpg"
+  },
+  {
+    "id": 17,
+    "img": "cards/017_Должны.webp",
+    "title": "Должны",
+    "text": "",
+    "src": "4974Zc7OUtg.jpg"
+  },
+  {
+    "id": 18,
+    "img": "cards/018_Почему.webp",
+    "title": "Почему?",
+    "text": "",
+    "src": "-DiGyiIND3s.jpg"
+  },
+  {
+    "id": 19,
+    "img": "cards/019_Тебя_надурили.webp",
+    "title": "Тебя надурили?",
+    "text": "",
+    "src": "_8mqlqxUWTU.jpg"
+  },
+  {
+    "id": 20,
+    "img": "cards/020_ЛАЖА.webp",
+    "title": "ЛАЖА",
+    "text": "",
+    "src": "_giAqYwAWM0.jpg"
+  },
+  {
+    "id": 21,
+    "img": "cards/021_Тормозные_идиоты.webp",
+    "title": "Тормозные идиоты",
+    "text": "",
+    "src": "_GjS10M2nQ8.jpg"
+  },
+  {
+    "id": 22,
+    "img": "cards/022_Пенсия.webp",
+    "title": "Пенсия",
+    "text": "",
+    "src": "_w7o8vJb7cE.jpg"
+  },
+  {
+    "id": 23,
+    "img": "cards/023_Дым.webp",
+    "title": "Дым",
+    "text": "",
+    "src": "aF7pwyCb2Vc.jpg"
+  },
+  {
+    "id": 24,
+    "img": "cards/024_ВСЁ_В_АЖУРЕ.webp",
+    "title": "ВСЁ В АЖУРЕ!",
+    "text": "",
+    "src": "ALVOXtPxIDM.jpg"
+  },
+  {
+    "id": 25,
+    "img": "cards/025_Настоящий_ученый.webp",
+    "title": "Настоящий ученый",
+    "text": "",
+    "src": "AoyvmQAJk70.jpg"
+  },
+  {
+    "id": 26,
+    "img": "cards/026_Джунгли.webp",
+    "title": "Джунгли",
+    "text": "",
+    "src": "aShZHbAZV1g.jpg"
+  },
+  {
+    "id": 27,
+    "img": "cards/027_Шевели_применку.webp",
+    "title": "Шевели применку.",
+    "text": "",
+    "src": "b-cPFk8PdVE.jpg"
+  },
+  {
+    "id": 28,
+    "img": "cards/028_Ого.webp",
+    "title": "Ого!",
+    "text": "",
+    "src": "BA6mNw3cHn8.jpg"
+  },
+  {
+    "id": 29,
+    "img": "cards/029_Ноги_замерзли.webp",
+    "title": "Ноги замерзли?",
+    "text": "",
+    "src": "BapwHR2zGsQ.jpg"
+  },
+  {
+    "id": 30,
+    "img": "cards/030_Время_чтобы_привыкнуть.webp",
+    "title": "Время чтобы привыкнуть",
+    "text": "",
+    "src": "BDpQgeFxI8M.jpg"
+  },
+  {
+    "id": 31,
+    "img": "cards/031_КПИСКЛЕЦ_БЫЛ_ПРОКЛЯТ.webp",
+    "title": "КПИСКЛЕЦ БЫЛ ПРОКЛЯТ",
+    "text": "",
+    "src": "bSzGgonc4ic.jpg"
+  },
+  {
+    "id": 32,
+    "img": "cards/032_ЗТО_КРУТОсооl.webp",
+    "title": "ЗТО КРУТОсооl",
+    "text": "",
+    "src": "BXshPGZTYmk.jpg"
+  },
+  {
+    "id": 33,
+    "img": "cards/033_ОЧНИСЬ._СОРТИРУЙ._ФЕЯ.webp",
+    "title": "ОЧНИСЬ. СОРТИРУЙ. ФЕЯ.",
+    "text": "",
+    "src": "bZ-nHdRkB7c.jpg"
+  },
+  {
+    "id": 34,
+    "img": "cards/034_Заколебали.webp",
+    "title": "Заколебали!",
+    "text": "",
+    "src": "c7AJIxmHUR8.jpg"
+  },
+  {
+    "id": 35,
+    "img": "cards/035_Лузер_позорный.webp",
+    "title": "Лузер позорный.",
+    "text": "",
+    "src": "c_nPxpSVftQ.jpg"
+  },
+  {
+    "id": 36,
+    "img": "cards/036_Какои-то_вонючии_шарик.webp",
+    "title": "Какои-то вонючии шарик",
+    "text": "",
+    "src": "CpZJR-rLqkI.jpg"
+  },
+  {
+    "id": 37,
+    "img": "cards/037_Милые_парни.webp",
+    "title": "Милые парни",
+    "text": "",
+    "src": "d5aqvPTNMds.jpg"
+  },
+  {
+    "id": 38,
+    "img": "cards/038_Где_ты_торчишь.webp",
+    "title": "Где ты торчишь?",
+    "text": "",
+    "src": "dNs7w1H5LQY.jpg"
+  },
+  {
+    "id": 39,
+    "img": "cards/039_Мало_денег,_работа.webp",
+    "title": "Мало денег, работа.",
+    "text": "",
+    "src": "dtj3F-6bFtQ.jpg"
+  },
+  {
+    "id": 40,
+    "img": "cards/040_Куда_ты_попрешь.webp",
+    "title": "Куда ты попрешь?",
+    "text": "",
+    "src": "DvfKNWb6D-E.jpg"
+  },
+  {
+    "id": 41,
+    "img": "cards/041_Уничтожай_преграды.webp",
+    "title": "Уничтожай преграды",
+    "text": "",
+    "src": "dVzc7BPPtio.jpg"
+  },
+  {
+    "id": 42,
+    "img": "cards/042_Теилс_на_птичке.webp",
+    "title": "Теилс на птичке",
+    "text": "",
+    "src": "dY8Q0R9skrk.jpg"
+  },
+  {
+    "id": 43,
+    "img": "cards/043_Что_ты_гонишь.webp",
+    "title": "Что ты гонишь?",
+    "text": "",
+    "src": "e3ilT-TMybo.jpg"
+  },
+  {
+    "id": 44,
+    "img": "cards/044_Учебник.webp",
+    "title": "Учебник",
+    "text": "",
+    "src": "ED3pKmBDVvE.jpg"
+  },
+  {
+    "id": 45,
+    "img": "cards/045_Жаба_пришла.webp",
+    "title": "Жаба пришла",
+    "text": "",
+    "src": "etkpeAatHuc.jpg"
+  },
+  {
+    "id": 46,
+    "img": "cards/046_ГАРГАНТУА.webp",
+    "title": "ГАРГАНТУА",
+    "text": "",
+    "src": "FF2ctvuVNNU.jpg"
+  },
+  {
+    "id": 47,
+    "img": "cards/047_3меральд_хаоса.webp",
+    "title": "3меральд хаоса",
+    "text": "",
+    "src": "fIyU1Cix1EQ.jpg"
+  },
+  {
+    "id": 48,
+    "img": "cards/048_Плаксивая_девица.webp",
+    "title": "Плаксивая девица",
+    "text": "",
+    "src": "fn-S9gLdAvc.jpg"
+  },
+  {
+    "id": 49,
+    "img": "cards/049_Сделка.webp",
+    "title": "Сделка",
+    "text": "",
+    "src": "Fs3COy9V3VA.jpg"
+  },
+  {
+    "id": 50,
+    "img": "cards/050_Яйцекарта.webp",
+    "title": "Яйцекарта",
+    "text": "",
+    "src": "FWs3GUqBRQE.jpg"
+  },
+  {
+    "id": 51,
+    "img": "cards/051_Лук.webp",
+    "title": "Лук",
+    "text": "",
+    "src": "g_q-ihKksSQ.jpg"
+  },
+  {
+    "id": 52,
+    "img": "cards/052_Крестьяне.webp",
+    "title": "Крестьяне",
+    "text": "",
+    "src": "Gmzuy_Hf15s.jpg"
+  },
+  {
+    "id": 53,
+    "img": "cards/053_Конца_не_видно.webp",
+    "title": "Конца не видно.",
+    "text": "",
+    "src": "gOug2lrpcYM.jpg"
+  },
+  {
+    "id": 54,
+    "img": "cards/054_Валенок.webp",
+    "title": "Валенок",
+    "text": "",
+    "src": "GrG47FKyrd4.jpg"
+  },
+  {
+    "id": 55,
+    "img": "cards/055_Силища.webp",
+    "title": "Силища",
+    "text": "",
+    "src": "GrxUtBlHb5o.jpg"
+  },
+  {
+    "id": 56,
+    "img": "cards/056_Дом.webp",
+    "title": "Дом",
+    "text": "",
+    "src": "gs7zWbXwbBY.jpg"
+  },
+  {
+    "id": 57,
+    "img": "cards/057_Увеличься.webp",
+    "title": "Увеличься",
+    "text": "",
+    "src": "gzs2uZx18do.jpg"
+  },
+  {
+    "id": 58,
+    "img": "cards/058_Мама_сова.webp",
+    "title": "Мама сова",
+    "text": "",
+    "src": "h8xC9RxT4C4.jpg"
+  },
+  {
+    "id": 59,
+    "img": "cards/059_Встречи.webp",
+    "title": "Встречи",
+    "text": "",
+    "src": "hh5tY6nzwwA.jpg"
+  },
+  {
+    "id": 60,
+    "img": "cards/060_Какого_хрена.webp",
+    "title": "Какого хрена",
+    "text": "",
+    "src": "htcvsU_Z_9M.jpg"
+  },
+  {
+    "id": 61,
+    "img": "cards/061_Минералка.webp",
+    "title": "Минералка",
+    "text": "",
+    "src": "hUvKlEVX8kw.jpg"
+  },
+  {
+    "id": 62,
+    "img": "cards/062_Не_злорадствуй.webp",
+    "title": "Не злорадствуй",
+    "text": "",
+    "src": "HXKMCqiRCdM.jpg"
+  },
+  {
+    "id": 63,
+    "img": "cards/063_Хе_хе_хе.webp",
+    "title": "Хе хе хе",
+    "text": "",
+    "src": "I3062dU_Fg0.jpg"
+  },
+  {
+    "id": 64,
+    "img": "cards/064_Зачем.webp",
+    "title": "Зачем",
+    "text": "",
+    "src": "ItGDb9ZAysM.jpg"
+  },
+  {
+    "id": 65,
+    "img": "cards/065_Самыи_отчаянныи_гении.webp",
+    "title": "Самыи отчаянныи гении",
+    "text": "",
+    "src": "iTln669OboI.jpg"
+  },
+  {
+    "id": 66,
+    "img": "cards/066_Фиг_его_знает.webp",
+    "title": "Фиг его знает",
+    "text": "",
+    "src": "j2FEl5fhFiA.jpg"
+  },
+  {
+    "id": 67,
+    "img": "cards/067_Ах_ничего_хаха.webp",
+    "title": "Ах ничего хаха...",
+    "text": "",
+    "src": "JfP5Udflpdo.jpg"
+  },
+  {
+    "id": 68,
+    "img": "cards/068_Жабка.webp",
+    "title": "Жабка",
+    "text": "",
+    "src": "jQuOlRAkDHA.jpg"
+  },
+  {
+    "id": 69,
+    "img": "cards/069_ПСИХАНУТЫИ.webp",
+    "title": "ПСИХАНУТЫИ",
+    "text": "",
+    "src": "jvPW8sJXLTU.jpg"
+  },
+  {
+    "id": 70,
+    "img": "cards/070_УМНИК._ЧЕСТЬ._ТАТА.webp",
+    "title": "УМНИК. ЧЕСТЬ. ТАТА",
+    "text": "",
+    "src": "jw5JgvB16RQ.jpg"
+  },
+  {
+    "id": 71,
+    "img": "cards/071_Мотор.webp",
+    "title": "Мотор",
+    "text": "",
+    "src": "jzLCDR6Vi38.jpg"
+  },
+  {
+    "id": 72,
+    "img": "cards/072_Дыра.webp",
+    "title": "Дыра",
+    "text": "",
+    "src": "kEc1xJObSHA.jpg"
+  },
+  {
+    "id": 73,
+    "img": "cards/073_Я_не_вампир.webp",
+    "title": "Я не вампир",
+    "text": "",
+    "src": "KFaEcXnFXyU.jpg"
+  },
+  {
+    "id": 74,
+    "img": "cards/074_Молоток.webp",
+    "title": "Молоток",
+    "text": "",
+    "src": "kipbUYeYwNE.jpg"
+  },
+  {
+    "id": 75,
+    "img": "cards/075_Мечты_есть.webp",
+    "title": "Мечты есть.",
+    "text": "",
+    "src": "KMKWFNwyM4E.jpg"
+  },
+  {
+    "id": 76,
+    "img": "cards/076_Торнадо_хиленький.webp",
+    "title": "Торнадо хиленький.",
+    "text": "",
+    "src": "KrgXUgVk4h4.jpg"
+  },
+  {
+    "id": 77,
+    "img": "cards/077_Подожди_меня,_Соник.webp",
+    "title": "Подожди меня, Соник!",
+    "text": "",
+    "src": "lC_BDOFKuwE.jpg"
+  },
+  {
+    "id": 78,
+    "img": "cards/078_Это_болно,_зачем.webp",
+    "title": "Это болно, зачем",
+    "text": "",
+    "src": "LJq8kix9ZaY.jpg"
+  },
+  {
+    "id": 79,
+    "img": "cards/079_Мы_не_можем_друг_без_друга.webp",
+    "title": "Мы не можем друг без друга!",
+    "text": "",
+    "src": "LnhjskMOxVA.jpg"
+  },
+  {
+    "id": 80,
+    "img": "cards/080_Дыра.webp",
+    "title": "Дыра",
+    "text": "",
+    "src": "lwGN7BGbtKY.jpg"
+  },
+  {
+    "id": 81,
+    "img": "cards/081_Оптимизм.webp",
+    "title": "Оптимизм",
+    "text": "",
+    "src": "mMCF4Ll05vY.jpg"
+  },
+  {
+    "id": 82,
+    "img": "cards/082_Яицо_и_курица.webp",
+    "title": "Яицо и курица",
+    "text": "",
+    "src": "mYNaGLebTP8.jpg"
+  },
+  {
+    "id": 83,
+    "img": "cards/083_Бубедм_сражаться.webp",
+    "title": "Бубедм сражаться!",
+    "text": "",
+    "src": "MZBAGzZp8JI.jpg"
+  },
+  {
+    "id": 84,
+    "img": "cards/084_Стонет_и_летает.webp",
+    "title": "\"Стонет\" и летает",
+    "text": "",
+    "src": "N6mqOaV5dEE.jpg"
+  },
+  {
+    "id": 85,
+    "img": "cards/085_Было_несколько_весело.webp",
+    "title": "Было несколько весело...",
+    "text": "",
+    "src": "NBQf8Esjh3Y.jpg"
+  },
+  {
+    "id": 86,
+    "img": "cards/086_Ловить_рыбу.webp",
+    "title": "Ловить рыбу",
+    "text": "",
+    "src": "Nd4FcKEOw3Q.jpg"
+  },
+  {
+    "id": 87,
+    "img": "cards/087_Лючше_и_лючше.webp",
+    "title": "Лючше и лючше!",
+    "text": "",
+    "src": "ndHxK0htgkU.jpg"
+  },
+  {
+    "id": 88,
+    "img": "cards/088_Найди_яйцо.webp",
+    "title": "Найди яйцо!",
+    "text": "",
+    "src": "nrvqtPGfM4I.jpg"
+  },
+  {
+    "id": 89,
+    "img": "cards/089_Никто_не_знает.webp",
+    "title": "Никто не знает",
+    "text": "",
+    "src": "Oapn_VpOZgA.jpg"
+  },
+  {
+    "id": 90,
+    "img": "cards/090_Дружок_для_полета.webp",
+    "title": "Дружок для полета",
+    "text": "",
+    "src": "onV3tSKTn4g.jpg"
+  },
+  {
+    "id": 91,
+    "img": "cards/091_Злые_тараканы.webp",
+    "title": "Злые тараканы",
+    "text": "",
+    "src": "oToixIwXOXo.jpg"
+  },
+  {
+    "id": 92,
+    "img": "cards/092_Гонять_балду.webp",
+    "title": "Гонять балду!",
+    "text": "",
+    "src": "OUu477jgx8I.jpg"
+  },
+  {
+    "id": 93,
+    "img": "cards/093_Почва.webp",
+    "title": "Почва",
+    "text": "",
+    "src": "PDxhXU8ZlCI.jpg"
+  },
+  {
+    "id": 94,
+    "img": "cards/094_Пустыня.webp",
+    "title": "Пустыня",
+    "text": "",
+    "src": "POjagSZDR7Y.jpg"
+  },
+  {
+    "id": 95,
+    "img": "cards/095_Потерялся.webp",
+    "title": "Потерялся",
+    "text": "",
+    "src": "PXMbbAc7yxs.jpg"
+  },
+  {
+    "id": 96,
+    "img": "cards/096_Уборка.webp",
+    "title": "Уборка",
+    "text": "",
+    "src": "Q3MfUCJRUcs.jpg"
+  },
+  {
+    "id": 97,
+    "img": "cards/097_Пркиаиас.webp",
+    "title": "Пркиаиас!",
+    "text": "",
+    "src": "Q8o9xMMN7hw.jpg"
+  },
+  {
+    "id": 98,
+    "img": "cards/098_Мир_грез.webp",
+    "title": "Мир грез...",
+    "text": "",
+    "src": "q_NPGIAotiY.jpg"
+  },
+  {
+    "id": 99,
+    "img": "cards/099_Ален_Делон.webp",
+    "title": "Ален Делон",
+    "text": "",
+    "src": "qp5cPucLAvE.jpg"
+  },
+  {
+    "id": 100,
+    "img": "cards/100_Мои_друзяки.webp",
+    "title": "Мои друзяки...",
+    "text": "",
+    "src": "qPU0lrfquJs.jpg"
+  },
+  {
+    "id": 101,
+    "img": "cards/101_Не_проиграем.webp",
+    "title": "Не проиграем",
+    "text": "",
+    "src": "qq9NA62F11A.jpg"
+  },
+  {
+    "id": 102,
+    "img": "cards/102_хреновато_товаришь.webp",
+    "title": "...хреновато товаришь",
+    "text": "",
+    "src": "qRROBomlL00.jpg"
+  },
+  {
+    "id": 103,
+    "img": "cards/103_ГУУУУУО_ЗАЧЕМ.webp",
+    "title": "ГУУУУУО! ЗАЧЕМ",
+    "text": "",
+    "src": "RegfkUF0j8g.jpg"
+  },
+  {
+    "id": 104,
+    "img": "cards/104_Иожык_каифует.webp",
+    "title": "Иожык каифует",
+    "text": "",
+    "src": "RwDc2doFnOo.jpg"
+  },
+  {
+    "id": 105,
+    "img": "cards/105_Развлечения.webp",
+    "title": "Развлечения",
+    "text": "",
+    "src": "ryeVkHMxrzE.jpg"
+  },
+  {
+    "id": 106,
+    "img": "cards/106_То_место.webp",
+    "title": "То место",
+    "text": "",
+    "src": "RzfjA3ADygU.jpg"
+  },
+  {
+    "id": 107,
+    "img": "cards/107_Прослушал.webp",
+    "title": "Прослушал",
+    "text": "",
+    "src": "s7h8pg8NwlQ.jpg"
+  },
+  {
+    "id": 108,
+    "img": "cards/108_Есть_проблемы.webp",
+    "title": "Есть проблемы",
+    "text": "",
+    "src": "sC6ondIP8uY.jpg"
+  },
+  {
+    "id": 109,
+    "img": "cards/109_Рановато.webp",
+    "title": "Рановато",
+    "text": "",
+    "src": "sEw6PMUeVdE.jpg"
+  },
+  {
+    "id": 110,
+    "img": "cards/110_Продолжай.webp",
+    "title": "Продолжай",
+    "text": "",
+    "src": "skOnqYwV1nE.jpg"
+  },
+  {
+    "id": 111,
+    "img": "cards/111_Не_убегай.webp",
+    "title": "Не убегай",
+    "text": "",
+    "src": "t3tFHIW3Ofc.jpg"
+  },
+  {
+    "id": 112,
+    "img": "cards/112_БЕЙ.webp",
+    "title": "БЕЙ",
+    "text": "",
+    "src": "t7jXTgoW1ZQ.jpg"
+  },
+  {
+    "id": 113,
+    "img": "cards/113_Копай_пока_видны_звезды.webp",
+    "title": "Копай пока видны звезды",
+    "text": "",
+    "src": "TjhBw-B4wE0.jpg"
+  },
+  {
+    "id": 114,
+    "img": "cards/114_Не_стоит.webp",
+    "title": "Не стоит",
+    "text": "",
+    "src": "TVdNVbqZ42A.jpg"
+  },
+  {
+    "id": 115,
+    "img": "cards/115_Свалил.webp",
+    "title": "Свалил",
+    "text": "",
+    "src": "u06evEwcXbg.jpg"
+  },
+  {
+    "id": 116,
+    "img": "cards/116_Головокружение.webp",
+    "title": "Головокружение",
+    "text": "",
+    "src": "uApSByC7Xm4.jpg"
+  },
+  {
+    "id": 117,
+    "img": "cards/117_Смех_и_деньги.webp",
+    "title": "Смех и деньги",
+    "text": "",
+    "src": "UdKDQEOqHZQ.jpg"
+  },
+  {
+    "id": 118,
+    "img": "cards/118_Ты_кумаришь.webp",
+    "title": "Ты кумаришь...",
+    "text": "",
+    "src": "uhA6r_PixSQ.jpg"
+  },
+  {
+    "id": 119,
+    "img": "cards/119_Врач.webp",
+    "title": "Врач",
+    "text": "",
+    "src": "uJ8FILF0mdw.jpg"
+  },
+  {
+    "id": 120,
+    "img": "cards/120_Жизнь_меняется.webp",
+    "title": "Жизнь меняется",
+    "text": "",
+    "src": "urL2MP5_VB0.jpg"
+  },
+  {
+    "id": 121,
+    "img": "cards/121_Пора_веселиться.webp",
+    "title": "Пора веселиться!",
+    "text": "",
+    "src": "utqHpa3zxpE.jpg"
+  },
+  {
+    "id": 122,
+    "img": "cards/122_Океан.webp",
+    "title": "Океан",
+    "text": "",
+    "src": "UvnK6Zn2s2A.jpg"
+  },
+  {
+    "id": 123,
+    "img": "cards/123_Крепкий_орешик.webp",
+    "title": "Крепкий орешик!",
+    "text": "",
+    "src": "v3h4d5u6wGw.jpg"
+  },
+  {
+    "id": 124,
+    "img": "cards/124_Вырубили.webp",
+    "title": "Вырубили",
+    "text": "",
+    "src": "v3YtzmW0Zt0.jpg"
+  },
+  {
+    "id": 125,
+    "img": "cards/125_Если_он_есть.webp",
+    "title": "Если он есть",
+    "text": "",
+    "src": "v_LAij5sn0E.jpg"
+  },
+  {
+    "id": 126,
+    "img": "cards/126_Вкалывать_и_мечтать.webp",
+    "title": "Вкалывать и мечтать!",
+    "text": "",
+    "src": "VS1IrSR4bD8.jpg"
+  },
+  {
+    "id": 127,
+    "img": "cards/127_Не_знаю.webp",
+    "title": "Не знаю",
+    "text": "",
+    "src": "VWM75v56rKo.jpg"
+  },
+  {
+    "id": 128,
+    "img": "cards/128_КОМКИ._ПУРГА._КОРАБЛИК.webp",
+    "title": "КОМКИ. ПУРГА. КОРАБЛИК.",
+    "text": "",
+    "src": "Vzyw8eE4wKw.jpg"
+  },
+  {
+    "id": 129,
+    "img": "cards/129_Наклс_вспоминает.webp",
+    "title": "Наклс вспоминает...",
+    "text": "",
+    "src": "wMwNsunl3WE.jpg"
+  },
+  {
+    "id": 130,
+    "img": "cards/130_Малявка,_пора_танцевать.webp",
+    "title": "Малявка, пора танцевать",
+    "text": "",
+    "src": "wyVLKUzI25A.jpg"
+  },
+  {
+    "id": 131,
+    "img": "cards/131_Доктор.webp",
+    "title": "Доктор",
+    "text": "",
+    "src": "x1edelN7ifg.jpg"
+  },
+  {
+    "id": 132,
+    "img": "cards/132_Дыра_перехода.webp",
+    "title": "Дыра перехода",
+    "text": "",
+    "src": "xDod4Uu--7k.jpg"
+  },
+  {
+    "id": 133,
+    "img": "cards/133_Похож_на_мяч.webp",
+    "title": "Похож на мяч!?",
+    "text": "",
+    "src": "xn5sOBhySc8.jpg"
+  },
+  {
+    "id": 134,
+    "img": "cards/134_Конечно,_воняет.webp",
+    "title": "Конечно, воняет...",
+    "text": "",
+    "src": "Xn8AyN10Jkw.jpg"
+  },
+  {
+    "id": 135,
+    "img": "cards/135_Курьер.webp",
+    "title": "Курьер",
+    "text": "",
+    "src": "Xs020hOX-fg.jpg"
+  },
+  {
+    "id": 136,
+    "img": "cards/136_Слушай.webp",
+    "title": "Слушай!",
+    "text": "",
+    "src": "y4PqhCw3qvM.jpg"
+  },
+  {
+    "id": 137,
+    "img": "cards/137_Кузькина_мать.webp",
+    "title": "Кузькина мать",
+    "text": "",
+    "src": "YcO-6jGbK80.jpg"
+  },
+  {
+    "id": 138,
+    "img": "cards/138_Счастливые.webp",
+    "title": "Счастливые!",
+    "text": "",
+    "src": "yuqGRs7jDus.jpg"
+  },
+  {
+    "id": 139,
+    "img": "cards/139_Мужик_в_галифе.webp",
+    "title": "Мужик в галифе",
+    "text": "",
+    "src": "ywojHUvXP-E.jpg"
+  },
+  {
+    "id": 140,
+    "img": "cards/140_Колхоз.webp",
+    "title": "Колхоз",
+    "text": "",
+    "src": "z_fXE0woHw4.jpg"
+  },
+  {
+    "id": 141,
+    "img": "cards/141_Чао_Доктор.webp",
+    "title": "Чао Доктор",
+    "text": "",
+    "src": "zO6a5KdvZH8.jpg"
+  },
+  {
+    "id": 142,
+    "img": "cards/142_Анусные_дали.webp",
+    "title": "Анусные дали!",
+    "text": "",
+    "src": "анусные дали.jpg"
+  },
+  {
+    "id": 143,
+    "img": "cards/143_Баида.webp",
+    "title": "Баида",
+    "text": "",
+    "src": "байда.jpg"
+  },
+  {
+    "id": 144,
+    "img": "cards/144_Банкрот.webp",
+    "title": "Банкрот",
+    "text": "",
+    "src": "банкрот.jpg"
+  },
+  {
+    "id": 145,
+    "img": "cards/145_Бизнес_раион.webp",
+    "title": "Бизнес раион",
+    "text": "",
+    "src": "бизнес.jpg"
+  },
+  {
+    "id": 146,
+    "img": "cards/146_Бросаться.webp",
+    "title": "Бросаться",
+    "text": "",
+    "src": "бросаться.jpg"
+  },
+  {
+    "id": 147,
+    "img": "cards/147_Почему.webp",
+    "title": "Почему...",
+    "text": "",
+    "src": "бросил работу.jpg"
+  },
+  {
+    "id": 148,
+    "img": "cards/148_БЕРГЕР.webp",
+    "title": "БЕРГЕР",
+    "text": "",
+    "src": "бургер.jpg"
+  },
+  {
+    "id": 149,
+    "img": "cards/149_СОНИКОЛА.webp",
+    "title": "СОНИКОЛА",
+    "text": "",
+    "src": "бухат.jpg"
+  },
+  {
+    "id": 150,
+    "img": "cards/150_Специи.webp",
+    "title": "Специи",
+    "text": "",
+    "src": "в моих бургерах.jpg"
+  },
+  {
+    "id": 151,
+    "img": "cards/151_Это_мазово.webp",
+    "title": "Это мазово",
+    "text": "",
+    "src": "вернули к маме.jpg"
+  },
+  {
+    "id": 152,
+    "img": "cards/152_Видения.webp",
+    "title": "Видения",
+    "text": "",
+    "src": "видения.jpg"
+  },
+  {
+    "id": 153,
+    "img": "cards/153_Внутри_него.webp",
+    "title": "Внутри него",
+    "text": "",
+    "src": "внутри.jpg"
+  },
+  {
+    "id": 154,
+    "img": "cards/154_Возможно.webp",
+    "title": "Возможно",
+    "text": "",
+    "src": "возможно позвною.jpg"
+  },
+  {
+    "id": 155,
+    "img": "cards/155_Волшебник.webp",
+    "title": "Волшебник",
+    "text": "",
+    "src": "волшебник.jpg"
+  },
+  {
+    "id": 156,
+    "img": "cards/156_Взопи_ЧЕРЕЗ_ВОРОТА.webp",
+    "title": "Взопи ЧЕРЕЗ ВОРОТА",
+    "text": "",
+    "src": "ворота.jpg"
+  },
+  {
+    "id": 157,
+    "img": "cards/157_Вошел.webp",
+    "title": "Вошел",
+    "text": "",
+    "src": "вошел видел.jpg"
+  },
+  {
+    "id": 158,
+    "img": "cards/158_Не_волнуйтесь.webp",
+    "title": "Не волнуйтесь",
+    "text": "",
+    "src": "все ок.jpg"
+  },
+  {
+    "id": 159,
+    "img": "cards/159_Все_правильно.webp",
+    "title": "Все правильно",
+    "text": "",
+    "src": "все правильно.jpg"
+  },
+  {
+    "id": 160,
+    "img": "cards/160_Встречи.webp",
+    "title": "Встречи",
+    "text": "",
+    "src": "встречи.png"
+  },
+  {
+    "id": 161,
+    "img": "cards/161_ZODCKA3KA.webp",
+    "title": "ZODCKA3KA",
+    "text": "",
+    "src": "всё знает.jpg"
+  },
+  {
+    "id": 162,
+    "img": "cards/162_Игра_окончена.webp",
+    "title": "Игра окончена",
+    "text": "",
+    "src": "выход.jpg"
+  },
+  {
+    "id": 163,
+    "img": "cards/163_НАПРЯМУ0.webp",
+    "title": "НАПРЯМУ|0",
+    "text": "",
+    "src": "гит.jpg"
+  },
+  {
+    "id": 164,
+    "img": "cards/164_голодное_животное.webp",
+    "title": "Голодное животное",
+    "text": "",
+    "src": "голодное животное.jpg"
+  },
+  {
+    "id": 165,
+    "img": "cards/165_Да.webp",
+    "title": "Да.",
+    "text": "",
+    "src": "да.jpg"
+  },
+  {
+    "id": 166,
+    "img": "cards/166_ДЕГЕНЕРАЦИЯ.webp",
+    "title": "ДЕГЕНЕРАЦИЯ",
+    "text": "",
+    "src": "дегенерация.jpg"
+  },
+  {
+    "id": 167,
+    "img": "cards/167_Заработать_денег.webp",
+    "title": "Заработать денег",
+    "text": "",
+    "src": "денег.jpg"
+  },
+  {
+    "id": 168,
+    "img": "cards/168_Работа.webp",
+    "title": "Работа",
+    "text": "",
+    "src": "день для работы.jpg"
+  },
+  {
+    "id": 169,
+    "img": "cards/169_Нет_входа.webp",
+    "title": "Нет входа",
+    "text": "",
+    "src": "для персонала.jpg"
+  },
+  {
+    "id": 170,
+    "img": "cards/170_Мои_дом.webp",
+    "title": "Мои дом.",
+    "text": "",
+    "src": "дом.jpg"
+  },
+  {
+    "id": 171,
+    "img": "cards/171_Дыра.webp",
+    "title": "Дыра...",
+    "text": "",
+    "src": "дыра.jpg"
+  },
+  {
+    "id": 172,
+    "img": "cards/172_Если_много_ждешь.webp",
+    "title": "Если много ждешь",
+    "text": "",
+    "src": "если много ждешь.jpg"
+  },
+  {
+    "id": 173,
+    "img": "cards/173_Жарко.webp",
+    "title": "Жарко",
+    "text": "",
+    "src": "жарко.jpg"
+  },
+  {
+    "id": 174,
+    "img": "cards/174_Задолжал.webp",
+    "title": "Задолжал",
+    "text": "",
+    "src": "задолжал.jpg"
+  },
+  {
+    "id": 175,
+    "img": "cards/175_Свалил.webp",
+    "title": "Свалил",
+    "text": "",
+    "src": "закрыл шоп.jpg"
+  },
+  {
+    "id": 176,
+    "img": "cards/176_Если_замерз,_прыгай.webp",
+    "title": "Если замерз, прыгай",
+    "text": "",
+    "src": "замерзли.jpg"
+  },
+  {
+    "id": 177,
+    "img": "cards/177_Зевок.webp",
+    "title": "Зевок",
+    "text": "",
+    "src": "зевок.jpg"
+  },
+  {
+    "id": 178,
+    "img": "cards/178_Как_скажещь.webp",
+    "title": "Как скажещь",
+    "text": "",
+    "src": "как скажещь.jpg"
+  },
+  {
+    "id": 179,
+    "img": "cards/179_Куда_ты_Теилс.webp",
+    "title": "Куда ты Теилс?",
+    "text": "",
+    "src": "колхоз.jpg"
+  },
+  {
+    "id": 180,
+    "img": "cards/180_конца_не_видно.webp",
+    "title": "Конца не видно",
+    "text": "",
+    "src": "конца не видно.jpg"
+  },
+  {
+    "id": 181,
+    "img": "cards/181_Конецепиця_любви.webp",
+    "title": "Конецепиця любви",
+    "text": "",
+    "src": "концепция любви.jpg"
+  },
+  {
+    "id": 182,
+    "img": "cards/182_круто.webp",
+    "title": "КРУТО",
+    "text": "",
+    "src": "круто.jpg"
+  },
+  {
+    "id": 183,
+    "img": "cards/183_ЛИХОРАДИТЬ.webp",
+    "title": "ЛИХОРАДИТЬ",
+    "text": "",
+    "src": "лихорадить.jpg"
+  },
+  {
+    "id": 184,
+    "img": "cards/184_Магазин.webp",
+    "title": "\"Магазин\"",
+    "text": "",
+    "src": "магазин.jpg"
+  },
+  {
+    "id": 185,
+    "img": "cards/185_Магазин_БУРГЕРОВ.webp",
+    "title": "Магазин БУРГЕРОВ",
+    "text": "",
+    "src": "магазин бургеров.jpg"
+  },
+  {
+    "id": 186,
+    "img": "cards/186_Мазь.webp",
+    "title": "Мазь",
+    "text": "",
+    "src": "мазь.jpg"
+  },
+  {
+    "id": 187,
+    "img": "cards/187_Макароны.webp",
+    "title": "Макароны",
+    "text": "",
+    "src": "макароны.jpg"
+  },
+  {
+    "id": 188,
+    "img": "cards/188_Я_мечтаю.webp",
+    "title": "Я мечтаю",
+    "text": "",
+    "src": "мечтаю.jpg"
+  },
+  {
+    "id": 189,
+    "img": "cards/189_Можешь_свалишь.webp",
+    "title": "Можешь свалишь?",
+    "text": "",
+    "src": "может свалишь.jpg"
+  },
+  {
+    "id": 190,
+    "img": "cards/190_Не_беспокоися.webp",
+    "title": "Не беспокоися.",
+    "text": "",
+    "src": "морг.jpg"
+  },
+  {
+    "id": 191,
+    "img": "cards/191_ЯИЦЕВАНИЕ.webp",
+    "title": "ЯИЦЕВАНИЕ",
+    "text": "",
+    "src": "мудлан.jpg"
+  },
+  {
+    "id": 192,
+    "img": "cards/192_Я_напуган.webp",
+    "title": "Я напуган.",
+    "text": "",
+    "src": "напуган.jpg"
+  },
+  {
+    "id": 193,
+    "img": "cards/193_Наш_мотив.webp",
+    "title": "Наш мотив",
+    "text": "",
+    "src": "наш мотив.jpg"
+  },
+  {
+    "id": 194,
+    "img": "cards/194_Ничего_не_жди.webp",
+    "title": "Ничего не жди",
+    "text": "",
+    "src": "не жди.jpg"
+  },
+  {
+    "id": 195,
+    "img": "cards/195_Не_понимаю.webp",
+    "title": "Не понимаю",
+    "text": "",
+    "src": "не понимаю.jpg"
+  },
+  {
+    "id": 196,
+    "img": "cards/196_Самое_ужасное.webp",
+    "title": "Самое ужасное",
+    "text": "",
+    "src": "не стыдно.jpg"
+  },
+  {
+    "id": 197,
+    "img": "cards/197_Мальчик.webp",
+    "title": "Мальчик.",
+    "text": "",
+    "src": "не хорошо.jpg"
+  },
+  {
+    "id": 198,
+    "img": "cards/198_НЕДОУМКИ.webp",
+    "title": "НЕДОУМКИ",
+    "text": "",
+    "src": "недоумки.jpg"
+  },
+  {
+    "id": 199,
+    "img": "cards/199_Нельзя_работать.webp",
+    "title": "Нельзя работать",
+    "text": "",
+    "src": "нельзя работать.jpg"
+  },
+  {
+    "id": 200,
+    "img": "cards/200_Непонятно.webp",
+    "title": "Непонятно...",
+    "text": "",
+    "src": "непонятно.jpg"
+  },
+  {
+    "id": 201,
+    "img": "cards/201_Нервировать.webp",
+    "title": "Нервировать",
+    "text": "",
+    "src": "нервировать.jpg"
+  },
+  {
+    "id": 202,
+    "img": "cards/202_Никто_не_может_сказать.webp",
+    "title": "Никто не может сказать",
+    "text": "",
+    "src": "никто не может.jpg"
+  },
+  {
+    "id": 203,
+    "img": "cards/203_Преследуй_носителя.webp",
+    "title": "Преследуй носителя!",
+    "text": "",
+    "src": "носитель яиц.jpg"
+  },
+  {
+    "id": 204,
+    "img": "cards/204_Ночью_в_мечтах.webp",
+    "title": "\"Ночью в мечтах\"",
+    "text": "",
+    "src": "ночью в мечтах.jpg"
+  },
+  {
+    "id": 205,
+    "img": "cards/205_Обеда_на_площади.webp",
+    "title": "Обеда на площади",
+    "text": "",
+    "src": "обеды.jpg"
+  },
+  {
+    "id": 206,
+    "img": "cards/206_Он_же_болнои.webp",
+    "title": "Он же болнои!",
+    "text": "",
+    "src": "он больной.jpg"
+  },
+  {
+    "id": 207,
+    "img": "cards/207_4_ЗМЕРАЛЬДА.webp",
+    "title": "4 ЗМЕРАЛЬДА",
+    "text": "",
+    "src": "опа.jpg"
+  },
+  {
+    "id": 208,
+    "img": "cards/208_Осторожно.webp",
+    "title": "Осторожно",
+    "text": "",
+    "src": "осторожно.jpg"
+  },
+  {
+    "id": 209,
+    "img": "cards/209_3ТО_НЕВЕРОRТНО.webp",
+    "title": "3ТО НЕВЕРОRТНО",
+    "text": "",
+    "src": "отдохнуть.jpg"
+  },
+  {
+    "id": 210,
+    "img": "cards/210_По_какой-то_причине.webp",
+    "title": "По какой-то причине",
+    "text": "",
+    "src": "очевидно.jpg"
+  },
+  {
+    "id": 211,
+    "img": "cards/211_Не_поздно.webp",
+    "title": "Не поздно...",
+    "text": "",
+    "src": "передумать.jpg"
+  },
+  {
+    "id": 212,
+    "img": "cards/212_Собери_50_колец.webp",
+    "title": "Собери 50 колец!",
+    "text": "",
+    "src": "побей соника.jpg"
+  },
+  {
+    "id": 213,
+    "img": "cards/213_Попахивает_подростком.webp",
+    "title": "Попахивает подростком",
+    "text": "",
+    "src": "подростком.jpg"
+  },
+  {
+    "id": 214,
+    "img": "cards/214_Поезда_напакованы_людьми.webp",
+    "title": "Поезда напакованы людьми",
+    "text": "",
+    "src": "поезда.jpg"
+  },
+  {
+    "id": 215,
+    "img": "cards/215_позовут.webp",
+    "title": "Позовут",
+    "text": "",
+    "src": "позовут.jpg"
+  },
+  {
+    "id": 216,
+    "img": "cards/216_Хочешь_помочь.webp",
+    "title": "Хочешь помочь?",
+    "text": "",
+    "src": "помочь.jpg"
+  },
+  {
+    "id": 217,
+    "img": "cards/217_почик.webp",
+    "title": "почик",
+    "text": "",
+    "src": "пончик.jpg"
+  },
+  {
+    "id": 218,
+    "img": "cards/218_Время_спать.webp",
+    "title": "Время спать",
+    "text": "",
+    "src": "пора спать.jpg"
+  },
+  {
+    "id": 219,
+    "img": "cards/219_Порча.webp",
+    "title": "Порча",
+    "text": "",
+    "src": "порча.jpg"
+  },
+  {
+    "id": 220,
+    "img": "cards/220_ПОШЛИ_ВСЕ.webp",
+    "title": "ПОШЛИ ВСЕ!!",
+    "text": "",
+    "src": "пошли все.jpg"
+  },
+  {
+    "id": 221,
+    "img": "cards/221_Природа_прекрасна.webp",
+    "title": "Природа прекрасна",
+    "text": "",
+    "src": "природа.jpg"
+  },
+  {
+    "id": 222,
+    "img": "cards/222_прихожей.webp",
+    "title": "прихожей",
+    "text": "",
+    "src": "прихожей.jpg"
+  },
+  {
+    "id": 223,
+    "img": "cards/223_О,_ДА.webp",
+    "title": "О, ДА!",
+    "text": "",
+    "src": "происходит.jpg"
+  },
+  {
+    "id": 224,
+    "img": "cards/224_ПРИГ0ТОВИТЬСЯ.webp",
+    "title": "ПРИГ0ТОВИТЬСЯ",
+    "text": "",
+    "src": "проникновение.jpg"
+  },
+  {
+    "id": 225,
+    "img": "cards/225_Извини.webp",
+    "title": "Извини",
+    "text": "",
+    "src": "прослушал.jpg"
+  },
+  {
+    "id": 226,
+    "img": "cards/226_Прости,_Чарли.webp",
+    "title": "Прости, Чарли",
+    "text": "",
+    "src": "прости чарли.jpg"
+  },
+  {
+    "id": 227,
+    "img": "cards/227_ЦОПИС_ТЕЛЕПОРТИРОВАН.webp",
+    "title": "ЦОПИС ТЕЛЕПОРТИРОВАН",
+    "text": "",
+    "src": "пукан.jpg"
+  },
+  {
+    "id": 228,
+    "img": "cards/228_С0храните_себя.webp",
+    "title": "С0храните себя!",
+    "text": "",
+    "src": "скрепите себя.jpg"
+  },
+  {
+    "id": 229,
+    "img": "cards/229_Эта_игра_скучная.webp",
+    "title": "Эта игра скучная!",
+    "text": "",
+    "src": "скучно.jpg"
+  },
+  {
+    "id": 230,
+    "img": "cards/230_Рассматриваите.webp",
+    "title": "Рассматриваите.",
+    "text": "",
+    "src": "смотрите.jpg"
+  },
+  {
+    "id": 231,
+    "img": "cards/231_Я_совершенно_смушен.webp",
+    "title": "Я совершенно смушен",
+    "text": "",
+    "src": "смущен.jpg"
+  },
+  {
+    "id": 232,
+    "img": "cards/232_ЧЕТЫРЕ.webp",
+    "title": "ЧЕТЫРЕ",
+    "text": "",
+    "src": "сосчитай.jpg"
+  },
+  {
+    "id": 233,
+    "img": "cards/233_Что_я_делал.webp",
+    "title": "Что я делал?",
+    "text": "",
+    "src": "спал на базе.jpg"
+  },
+  {
+    "id": 234,
+    "img": "cards/234_Спокоиненжои_ночки.webp",
+    "title": "Спокоиненжои ночки",
+    "text": "",
+    "src": "споки.jpg"
+  },
+  {
+    "id": 235,
+    "img": "cards/235_Мне_так_спокоино.webp",
+    "title": "Мне так спокоино",
+    "text": "",
+    "src": "спокойно.jpg"
+  },
+  {
+    "id": 236,
+    "img": "cards/236_Страховка.webp",
+    "title": "Страховка",
+    "text": "",
+    "src": "страховка.jpg"
+  },
+  {
+    "id": 237,
+    "img": "cards/237_Сустав_баламут.webp",
+    "title": "Сустав баламут",
+    "text": "",
+    "src": "сустав.jpg"
+  },
+  {
+    "id": 238,
+    "img": "cards/238_Не_в_пещеру.webp",
+    "title": "Не в пещеру",
+    "text": "",
+    "src": "только не в пещеру.jpg"
+  },
+  {
+    "id": 239,
+    "img": "cards/239_Тормозные_идиоты.webp",
+    "title": "Тормозные идиоты",
+    "text": "",
+    "src": "тормозные идиоты.jpg"
+  },
+  {
+    "id": 240,
+    "img": "cards/240_Трудно,_плохо.webp",
+    "title": "Трудно, плохо...",
+    "text": "",
+    "src": "трудно.jpg"
+  },
+  {
+    "id": 241,
+    "img": "cards/241_трус.webp",
+    "title": "ТРУС",
+    "text": "",
+    "src": "трус.jpg"
+  },
+  {
+    "id": 242,
+    "img": "cards/242_У_тебя_проблема,_да.webp",
+    "title": "У тебя проблема, да?",
+    "text": "",
+    "src": "у тебя проблемы.jpg"
+  },
+  {
+    "id": 243,
+    "img": "cards/243_Ублюбок.webp",
+    "title": "Ублюбок",
+    "text": "",
+    "src": "ублюбок.jpg"
+  },
+  {
+    "id": 244,
+    "img": "cards/244_Остановить_заица.webp",
+    "title": "Остановить заица",
+    "text": "",
+    "src": "удар грома.jpg"
+  },
+  {
+    "id": 245,
+    "img": "cards/245_Просто_удурки.webp",
+    "title": "Просто удурки",
+    "text": "",
+    "src": "удурки.jpg"
+  },
+  {
+    "id": 246,
+    "img": "cards/246_Я_выжег_проблемы.webp",
+    "title": "Я выжег проблемы",
+    "text": "",
+    "src": "утюг.jpg"
+  },
+  {
+    "id": 247,
+    "img": "cards/247_ФЛЕЙТА.webp",
+    "title": "ФЛЕЙТА",
+    "text": "",
+    "src": "флейта.jpg"
+  },
+  {
+    "id": 248,
+    "img": "cards/248_Вы_типа_побитые.webp",
+    "title": "Вы типа побитые",
+    "text": "",
+    "src": "хай.jpg"
+  },
+  {
+    "id": 249,
+    "img": "cards/249_Хммхммхмм.webp",
+    "title": "Хммхммхмм...",
+    "text": "",
+    "src": "хмм.jpg"
+  },
+  {
+    "id": 250,
+    "img": "cards/250_Я_бы_хотел_его.webp",
+    "title": "Я бы хотел его",
+    "text": "",
+    "src": "хотел иметь.jpg"
+  },
+  {
+    "id": 251,
+    "img": "cards/251_Храбрость.webp",
+    "title": "Храбрость",
+    "text": "",
+    "src": "храбрость.jpg"
+  },
+  {
+    "id": 252,
+    "img": "cards/252_Хреново.webp",
+    "title": "Хреново...",
+    "text": "",
+    "src": "хреново.jpg"
+  },
+  {
+    "id": 253,
+    "img": "cards/253_Чувствую_смешное.webp",
+    "title": "Чувствую смешное",
+    "text": "",
+    "src": "чувствую смешное.jpg"
+  },
+  {
+    "id": 254,
+    "img": "cards/254_3то_круто.webp",
+    "title": "3то круто",
+    "text": "",
+    "src": "это круто.jpg"
+  },
+  {
+    "id": 255,
+    "img": "cards/255_Крылатый_единорог.webp",
+    "title": "Крылатый единорог",
+    "text": "",
+    "src": "это не лошадь.jpg"
+  },
+  {
+    "id": 256,
+    "img": "cards/256_R_bcefda.webp",
+    "title": "R bcefda",
+    "text": "",
+    "src": "я всегда так говорю.jpg"
+  },
+  {
+    "id": 257,
+    "img": "cards/257_СЛОМ_КАМЕНЬ.webp",
+    "title": "СЛОМ КАМЕНЬ",
+    "text": "",
+    "src": "я классный я дам.jpg"
+  },
+  {
+    "id": 258,
+    "img": "cards/258_Смотришь_странно.webp",
+    "title": "Смотришь странно...",
+    "text": "",
+    "src": "я крутой.jpg"
+  },
+  {
+    "id": 259,
+    "img": "cards/259_Я_не_знаю.webp",
+    "title": "Я не знаю",
+    "text": "",
+    "src": "я не знаю.jpg"
+  },
+  {
+    "id": 260,
+    "img": "cards/260_О,_да_ГЖЬЫЮФШП.webp",
+    "title": "О, да! ГЖЬЫЮФШП",
+    "text": "",
+    "src": "я счастлив.jpg"
+  }
+]
